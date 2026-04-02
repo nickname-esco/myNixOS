@@ -121,4 +121,4 @@ Includes tools such as:
 
 ## Credits
 
-Built with NixOS, Home Manager, and nixvim. Inspired by reproducible ZaneyOS (Tyler Kelley) dotfile and workstation setups across the Nix ecosystem.
+Built with NixOS, Home Manager, and nixvim. Inspired by reproducible ZaneyOS (Tyler Kelley) and others.
