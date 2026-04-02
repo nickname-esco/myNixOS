@@ -78,6 +78,19 @@ Configured through `nixvim` with:
 - `zoxide` for fast directory jumping
 - `oh-my-posh` for prompt theming
 
+## 📁 Config Directory
+
+The `config/` directory contains tool-specific configurations and backups:
+
+- **`nvf.bak`** – backup of a previous NVF configuration  
+- **`ohmyposh/`**
+  - `base.json`
+  - `zen.toml`  
+- **`wezterm/`**
+  - `.wezterm.lua`  
+- **`zsh/`**
+  - `zshrc` 
+
 ## Development Tooling
 
 ### Languages
