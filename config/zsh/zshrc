@@ -1,0 +1,87 @@
+export PATH="$HOME/.local/bin:$PATH"
+
+# === Zinit Setup ===
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Snippets
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::git
+zinit snippet OMZP::command-not-found
+
+# Completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# Completion Styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# Oh My Posh Prompt
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+
+# Keybindings
+bindkey -v
+bindkey 'Alt+p' history-search-backward
+bindkey 'Alt+n' history-search-forward
+bindkey 'Alt+w' kill-region
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Aliases
+alias update='nh os switch . -H nixos'
+alias hms='nh home switch -c bahri ~/.myNixOS'
+alias ll='ls --color'
+alias nv='nvim'
+alias c='clear'
+alias cat='bat'
+alias .m='cd .myNixOS'
+alias ncg='nix-collect-garbage -d'
+
+# Git Aliases
+alias br='git branch --sort=-committerdate'
+alias co='git checkout'
+alias cb='git checkout -b'                      # create and switch to new branch
+alias df='git diff'
+alias ds='git diff --staged'                    # diff staged changes
+alias com='git commit -a'
+alias ca='git commit --amend'                   # amend last commit
+alias gs='git stash'
+alias gp='git pull'
+alias gpl='git pull --rebase'                   # pull with rebase
+alias gps='git push'
+alias st='git status'
+alias rb='git rebase'                           # rebase current branch
+alias mg='git merge'                            # merge branch into current
+alias rs='git reset --soft HEAD~1'              # soft reset last commit
+alias rh='git reset --hard'                     # hard reset (be careful!)
+alias cl='git clone'                            # clone remote repo
+alias glo='git log --oneline --graph --decorate --all'  # compact log
+alias lgp='git log --graph --pretty=format:"%Cred%h%Creset - %C(yellow)%d%Creset %s %C(green)(%cr)%C(bold blue) <%an>%Creset" --abbrev-commit'
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"

@@ -1,0 +1,60 @@
+# Swap & temp files
+*.swp
+*.swo
+*.tmp
+*~
+# Caches
+.cache/
+*.log
+result
+result-*
+build/
+tmp/
+# Home Manager state/output (if symlinked or evaluated into the repo)
+home-manager/
+home-manager generations/
+home-manager-build/
+.nix-profile/
+.local/state/nix/
+.local/share/nix/
+# OS & GUI trash
+.DS_Store
+Thumbs.db
+# Secrets
+secrets/
+*.key
+*.pem
+*.gpg
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+# Environment & credentials
+.env
+.env.*
+.envrc
+credentials
+credentials.*
+*.credentials
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+id_ecdsa
+*.pub
+# Age encryption (common in Nix/sops setups)
+*.age
+# Sops secrets (if you use sops-nix)
+secrets.yaml
+secrets.json
+secrets.toml
+# API keys / tokens
+*.token
+*.secret
+auth.json
+# Password files
+*.passwd
+*.password
+shadow
