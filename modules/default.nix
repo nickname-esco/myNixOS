@@ -1,0 +1,19 @@
+{
+  imports = [
+    ./nh.nix
+    ./git.nix
+    ./zsh.nix
+    ./bat.nix
+    ./eza.nix
+    ./tmux.nix
+    ./utils.nix
+    ./unfree.nix
+    ./devkit.nix
+    ./direnv.nix
+    ./ardour.nix
+    ./nixvim.nix
+    ./lazygit.nix
+    ./alacritty.nix
+    ./cybersecurity.nix
+  ];
+}

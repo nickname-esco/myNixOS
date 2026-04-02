@@ -1,0 +1,32 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    jq
+    fd
+    fzf
+    nvd
+    w3m
+    yazi
+    inxi
+    lsof
+    fuse
+    slurp
+    nitch
+    zinit
+    zoxide
+    killall
+    cliphist
+    vkbasalt
+    winetricks
+    pkg-config
+    oh-my-posh
+    appimage-run
+    wl-clipboard
+    pay-respects
+    transmission_4
+    nix-search-cli
+    nix-output-monitor
+    nix-prefetch-scripts
+    wineWowPackages.staging
+  ];
+}
