@@ -5,6 +5,9 @@
       verbose = false;
       systemd.enable = true;
       luks.devices = {
+        "cryptnixos" = {
+          device = "/dev/disk/by-label/cryptnixos";
+        };
         "cryptroot" = {
           device = "/dev/disk/by-label/cryptroot";
           preLVM = true;
