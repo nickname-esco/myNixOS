@@ -5,7 +5,7 @@
 {
   imports = [
     ./core
-    .etc/nixos/hardware-configuration.nix
+    ./etc/nixos/hardware-configuration.nix
   ];
 
   # Nix-ld and lang tools
