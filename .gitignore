@@ -58,3 +58,4 @@ auth.json
 *.passwd
 *.password
 shadow
+hardware-configuration.nix
