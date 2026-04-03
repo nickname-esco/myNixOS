@@ -134,4 +134,4 @@ Includes tools such as:
 
 ## Credits
 
-Built with NixOS, Home Manager, and nixvim. Inspired by reproducible ZaneyOS (Tyler Kelley) and Dreans of Code (Elliot Minns).
+Built with NixOS, Home Manager, and nixvim. Inspired by reproducible ZaneyOS (Tyler Kelley) and Dreans of Code (Elliott Minns).
