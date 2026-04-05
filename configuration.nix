@@ -9,13 +9,17 @@
   ];
 
   # Nix-ld and lang tools
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    go
-    gopls
-    stdenv.cc.cc.lib
-    zlib
-  ];
+  programs = {
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        go
+        zlib
+        gopls
+        stdenv.cc.cc.lib
+      ];
+    };
+  };
 
   system.stateVersion = "25.11";
 }
