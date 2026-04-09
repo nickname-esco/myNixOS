@@ -30,6 +30,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Oh My Posh Prompt
+for f in ~/.cache/oh-my-posh/init.*.zsh(N); do
+  local bin=$(grep -om1 '/nix/store/[^[:space:]]*oh-my-posh' "$f" | head -1)
+  [[ -n $bin && ! -x $bin ]] && rm -rf ~/.cache/oh-my-posh && break
+done
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 # Keybindings
