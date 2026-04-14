@@ -7,7 +7,7 @@
     xserver = {
       enable = true;
       xkb = {
-        layout = "au";
+        layout = "us";
         variant = "";
       };
 
