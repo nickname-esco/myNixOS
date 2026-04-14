@@ -29,6 +29,9 @@
     cosmic = {
       excludePackages = with pkgs; [
         cosmic-edit
+        cosmic-music
+        cosmic-player
+        cosmic-term
       ];
     };
     loginShellInit = ''
