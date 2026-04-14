@@ -37,12 +37,55 @@
       clipboard = "unnamedplus";
     };
 
-    # Theme: Catppuccin (mocha)
-    colorschemes.catppuccin = {
+    # Theme: Cyberdream
+    colorschemes.cyberdream = {
       enable = true;
       settings = {
-        flavour = "mocha";
-        transparent_background = false;
+        variant = "default";
+        transparent = false;
+        saturation = 1;
+        italic_comments = true;
+        terminal_colors = true;
+        hide_fillchars = false;
+        borderless_telescope = true;
+        cache = false;
+        theme = {
+          colors = {
+            bg = "#16181a";
+            bgalt = "#1e2124";
+            fg = "#ffffff";
+            grey = "#7b8496";
+            red = "#ff6e5e";
+            orange = "#ff9f5e";
+            yellow = "#f1ff5e";
+            green = "#5eff6c";
+            cyan = "#5ef1ff";
+            blue = "#5ea1ff";
+            magenta = "#bd5eff";
+            pink = "#ff5ef1";
+            white = "#ffffff";
+          };
+          highlights = {
+            # Make comments more visible (cyberdream's default grey can be subtle)
+            Comment = { fg = "#7b8496"; italic = true; };
+
+            # Soften the search highlight — the default is quite loud
+            Search = { fg = "#16181a"; bg = "#f1ff5e"; bold = true; };
+            IncSearch = { fg = "#16181a"; bg = "#ff9f5e"; bold = true; };
+
+            # Make the current line number stand out more
+            CursorLineNr = { fg = "#5ea1ff"; bold = true; };
+
+            # Tone down matching parentheses (default can clash)
+            MatchParen = { fg = "#ff5ef1"; bold = true; underline = true; };
+
+            # Visual selection — slightly more visible
+            Visual = { bg = "#2a2d2f"; };
+
+            # Telescope prompt border to match the blue accent
+            TelescopeBorderPrompt = { fg = "#5ea1ff"; };
+          };
+        };
       };
     };
 
@@ -53,7 +96,7 @@
         enable = true;
         settings = {
           options = {
-            theme = "catppuccin";
+            theme = "auto";
           };
         };
       };
