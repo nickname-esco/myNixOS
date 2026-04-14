@@ -32,7 +32,4 @@
     konsole
   ];
 
-  environment.loginShellInit = ''
-    [[ "$(tty)" = "/dev/tty1" ]] && exec ./gs.sh
-  '';
 }
