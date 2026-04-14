@@ -14,8 +14,15 @@
       excludePackages = [ pkgs.xterm ];
     };
 
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
+    # KDE Plasma
+    displayManager = {
+      sddm = {
+        enable = true;
+        plasma6 = {
+          enable = true;
+        };
+      };
+    };
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
