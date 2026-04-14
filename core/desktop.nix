@@ -5,34 +5,34 @@
 {
   services = {
     xserver = {
-      enable = true;
       xkb = {
-        layout = "au";
+        layout = "us";
         variant = "";
       };
-
       excludePackages = [ pkgs.xterm ];
     };
-
     displayManager = {
-      sddm = {
+      cosmic-greeter = {
         enable = true;
       };
     };
     desktopManager = {
-      plasma6 = {
+      cosmic = {
         enable = true;
       };
     };
+    system76-scheduler = {
+      enable = true;
+    };
   };
-
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    kate
-    elisa
-    konsole
-  ];
-
-  environment.loginShellInit = ''
-    [[ "$(tty)" = "/dev/tty1" ]] && exec ./gs.sh
-  '';
+  environment = {
+    cosmic = {
+      excludePackages = with pkgs; [
+        cosmic-edit
+      ];
+    };
+    loginShellInit = ''
+      [[ "$(tty)" = "/dev/tty1" ]] && exec /home/bahri/gs.sh
+    '';
+  };
 }
