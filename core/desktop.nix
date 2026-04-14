@@ -33,8 +33,6 @@
         cosmic-term
       ];
     };
-    loginShellInit = ''
-      [[ "$(tty)" = "/dev/tty1" ]] && exec /home/bahri/gs.sh
-    '';
+    loginShellInit = ''[[ "$(tty)" = "/dev/tty1" ]] && [ -x /home/bahri/gs.sh ] && /home/bahri/gs.sh   '';
   };
 }
