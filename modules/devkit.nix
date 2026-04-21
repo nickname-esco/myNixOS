@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # Go
     go
@@ -50,6 +51,9 @@
     python312Packages.pynvim
     vimPlugins.telescope-nvim
     luajitPackages.luarocks_bootstrap
+
+    # Communication
+    webex
 
     # AST
     tree-sitter
