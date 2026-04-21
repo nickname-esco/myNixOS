@@ -52,9 +52,6 @@
     vimPlugins.telescope-nvim
     luajitPackages.luarocks_bootstrap
 
-    # Communication
-    webex
-
     # AST
     tree-sitter
   ];
