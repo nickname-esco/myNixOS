@@ -14,7 +14,6 @@
     ./nixvim.nix
     ./lazygit.nix
     ./alacritty.nix
-    ./zen-browser.nix
     ./cybersecurity.nix
   ];
 }
