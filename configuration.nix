@@ -8,14 +8,12 @@
     ./hardware-configuration.nix
   ];
 
-  # Nix-ld and lang tools
+  # nix-ld: shared library shims for unpackaged binaries
   programs = {
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        go
         zlib
-        gopls
         stdenv.cc.cc.lib
       ];
     };
