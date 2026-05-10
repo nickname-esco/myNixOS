@@ -1,11 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
-{
+{inputs, ...}: {
   # Bring in Nixvim's Home Manager module so programs.nixvim options exist
-  imports = [ inputs.nixvim.homeModules.nixvim ];
+  imports = [inputs.nixvim.homeModules.nixvim];
 
   programs.nixvim = {
     enable = true;
@@ -32,7 +27,7 @@
       updatetime = 200;
       cursorline = true;
       spell = true;
-      spelllang = [ "en" ];
+      spelllang = ["en"];
       # Send all yanks/deletes to the system clipboard (Wayland/X11)
       clipboard = "unnamedplus";
       # Scroll padding — keep cursor away from screen edges
@@ -60,7 +55,7 @@
         transparent_background = false;
         term_colors = true;
         styles = {
-          comments = [ "italic" ];
+          comments = ["italic"];
         };
         integrations = {
           lualine = true;
@@ -81,23 +76,40 @@
         };
         custom_highlights = {
           # Make comments more visible
-          Comment = { fg = "#7f849c"; style = [ "italic" ]; };
+          Comment = {
+            fg = "#7f849c";
+            style = ["italic"];
+          };
 
           # Soften the search highlight
-          Search = { fg = "#1e1e2e"; bg = "#f9e2af"; style = [ "bold" ]; };
-          IncSearch = { fg = "#1e1e2e"; bg = "#fab387"; style = [ "bold" ]; };
+          Search = {
+            fg = "#1e1e2e";
+            bg = "#f9e2af";
+            style = ["bold"];
+          };
+          IncSearch = {
+            fg = "#1e1e2e";
+            bg = "#fab387";
+            style = ["bold"];
+          };
 
           # Make the current line number stand out more
-          CursorLineNr = { fg = "#89b4fa"; style = [ "bold" ]; };
+          CursorLineNr = {
+            fg = "#89b4fa";
+            style = ["bold"];
+          };
 
           # Tone down matching parentheses
-          MatchParen = { fg = "#f5c2e7"; style = [ "bold" "underline" ]; };
+          MatchParen = {
+            fg = "#f5c2e7";
+            style = ["bold" "underline"];
+          };
 
           # Visual selection — slightly more visible
-          Visual = { bg = "#313244"; };
+          Visual = {bg = "#313244";};
 
           # Telescope prompt border to match the blue accent
-          TelescopeBorderPrompt = { fg = "#89b4fa"; };
+          TelescopeBorderPrompt = {fg = "#89b4fa";};
         };
       };
     };
@@ -160,12 +172,12 @@
       lint = {
         enable = true;
         lintersByFt = {
-          python = [ "ruff" ];
-          sh = [ "shellcheck" ];
-          javascript = [ "eslint_d" ];
-          typescript = [ "eslint_d" ];
-          javascriptreact = [ "eslint_d" ];
-          typescriptreact = [ "eslint_d" ];
+          python = ["ruff"];
+          sh = ["shellcheck"];
+          javascript = ["eslint_d"];
+          typescript = ["eslint_d"];
+          javascriptreact = ["eslint_d"];
+          typescriptreact = ["eslint_d"];
         };
       };
 
@@ -262,13 +274,11 @@
       luasnip.enable = true;
       friendly-snippets.enable = true;
 
-      # blink-cmp handles signature help via signature.enabled = true
-
-      # # LSP configuration
+      # LSP configuration
       lsp = {
         enable = true;
         servers = {
-          nil_ls.enable = true;
+          nixd.enable = true;
           lua_ls.enable = true;
           pyright.enable = true;
           ts_ls.enable = true;
@@ -297,27 +307,26 @@
         enable = true;
         settings = {
           formatters_by_ft = {
-            nix = [ "alejandra" ];
-            lua = [ "stylua" ];
-            python = [ "ruff" ];
-            javascript = [ "prettierd" ];
-            typescript = [ "prettierd" ];
-            javascriptreact = [ "prettierd" ];
-            typescriptreact = [ "prettierd" ];
-            css = [ "prettierd" ];
-            html = [ "prettierd" ];
-            json = [ "prettierd" ];
-            yaml = [ "prettierd" ];
-            markdown = [ "prettierd" ];
-            toml = [ "taplo" ];
-            sh = [ "shfmt" ];
+            nix = ["alejandra"];
+            lua = ["stylua"];
+            python = ["ruff"];
+            javascript = ["prettierd"];
+            typescript = ["prettierd"];
+            javascriptreact = ["prettierd"];
+            typescriptreact = ["prettierd"];
+            css = ["prettierd"];
+            html = ["prettierd"];
+            json = ["prettierd"];
+            yaml = ["prettierd"];
+            markdown = ["prettierd"];
+            toml = ["taplo"];
+            sh = ["shfmt"];
           };
           format_on_save = {
             lsp_fallback = true;
           };
         };
       };
-
     };
 
     # Keymaps aligned with your NVF setup
@@ -325,7 +334,7 @@
       # Insert-mode escape
       {
         key = "jk";
-        mode = [ "i" ];
+        mode = ["i"];
         action = "<ESC>";
         options.desc = "Exit insert mode";
       }
@@ -333,7 +342,7 @@
       # Save
       {
         key = "<leader>w";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>w<CR>";
         options.desc = "Save file";
       }
@@ -341,19 +350,19 @@
       # Buffer navigation
       {
         key = "]b";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>bnext<CR>";
         options.desc = "Next buffer";
       }
       {
         key = "[b";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>bprev<CR>";
         options.desc = "Previous buffer";
       }
       {
         key = "<leader>bd";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>bdelete<CR>";
         options.desc = "Close buffer";
       }
@@ -361,25 +370,25 @@
       # Window navigation
       {
         key = "<C-h>";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<C-w>h";
         options.desc = "Move to left window";
       }
       {
         key = "<C-j>";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<C-w>j";
         options.desc = "Move to lower window";
       }
       {
         key = "<C-k>";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<C-w>k";
         options.desc = "Move to upper window";
       }
       {
         key = "<C-l>";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<C-w>l";
         options.desc = "Move to right window";
       }
@@ -387,7 +396,7 @@
       # Undotree
       {
         key = "<leader>u";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>UndotreeToggle<CR>";
         options.desc = "Toggle undo tree";
       }
@@ -395,7 +404,7 @@
       # Todo-comments
       {
         key = "<leader>ft";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>TodoTelescope<CR>";
         options.desc = "Search TODOs";
       }
@@ -403,13 +412,13 @@
       # Telescope
       {
         key = "<leader>ff";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>Telescope find_files<cr>";
         options.desc = "Search files by name";
       }
       {
         key = "<leader>lg";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>Telescope live_grep<cr>";
         options.desc = "Search files by contents";
       }
@@ -417,7 +426,7 @@
       # File tree (Neo-tree)
       {
         key = "<leader>fe";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>Neotree toggle<cr>";
         options.desc = "File browser toggle";
       }
@@ -425,7 +434,7 @@
       # Terminal
       {
         key = "<leader>t";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>ToggleTerm<CR>";
         options.desc = "Toggle terminal";
       }
@@ -433,13 +442,13 @@
       # Comment line (Doom Emacs style)
       {
         key = "<leader>.";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>";
         options.desc = "Comment line";
       }
       {
         key = "<leader>.";
-        mode = [ "v" ];
+        mode = ["v"];
         action = "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>";
         options.desc = "Comment selection";
       }
@@ -447,25 +456,25 @@
       # Diagnostics
       {
         key = "<leader>dj";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>lua vim.diagnostic.goto_next()<CR>";
         options.desc = "Go to next diagnostic";
       }
       {
         key = "<leader>dk";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
         options.desc = "Go to previous diagnostic";
       }
       {
         key = "<leader>dl";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>lua vim.diagnostic.open_float()<CR>";
         options.desc = "Show diagnostic details";
       }
       {
         key = "<leader>dt";
-        mode = [ "n" ];
+        mode = ["n"];
         action = "<cmd>Trouble diagnostics toggle<cr>";
         options.desc = "Toggle diagnostics list";
       }
@@ -489,7 +498,7 @@
       # Help mappings
       {
         key = "<leader>h";
-        mode = [ "n" ];
+        mode = ["n"];
         action = ":help<Space>";
         options = {
           desc = "Open :help prompt";
@@ -498,36 +507,10 @@
       }
       {
         key = "<leader>H";
-        mode = [ "n" ];
+        mode = ["n"];
         action = ":help <C-r><C-w><CR>";
         options.desc = "Help for word under cursor";
       }
-    ];
-
-    # Runtime tools and language servers
-    extraPackages = with pkgs; [
-      # Nix
-      nil
-      alejandra
-      # Lua
-      stylua
-      # Python
-      ruff
-      # Web / markup
-      prettierd
-      # Shell
-      shfmt
-      shellcheck
-      # JS linting
-      nodePackages.eslint_d
-      # TOML
-      taplo
-      # Misc tools
-      hyprls
-      vscode-langservers-extracted
-      zls
-      figlet
-      toilet
     ];
 
     # Diagnostic UI and notify background tweaks
