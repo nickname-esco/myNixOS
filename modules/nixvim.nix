@@ -35,6 +35,21 @@
       spelllang = [ "en" ];
       # Send all yanks/deletes to the system clipboard (Wayland/X11)
       clipboard = "unnamedplus";
+      # Scroll padding — keep cursor away from screen edges
+      scrolloff = 8;
+      sidescrolloff = 8;
+      # Sane split directions
+      splitbelow = true;
+      splitright = true;
+      # Case-insensitive search unless uppercase is typed
+      ignorecase = true;
+      smartcase = true;
+      # Persistent undo across sessions
+      undofile = true;
+      # Encoding
+      fileencoding = "utf-8";
+      # Conceal for markdown rendering
+      conceallevel = 2;
     };
 
     # Theme: Catppuccin (mocha)
@@ -50,6 +65,19 @@
         integrations = {
           lualine = true;
           telescope.enabled = true;
+          treesitter = true;
+          gitsigns = true;
+          notify = true;
+          noice = true;
+          which_key = true;
+          indent_blankline.enabled = true;
+          bufferline.enabled = true;
+          illuminate.enabled = true;
+          trouble = true;
+          hop.enabled = true;
+          leap.enabled = true;
+          render_markdown = true;
+          todo_comments.enabled = true;
         };
         custom_highlights = {
           # Make comments more visible
@@ -100,7 +128,7 @@
 
       # Treesitter for syntax/TS features
       treesitter.enable = true;
-      treesitter-context.enable = false;
+      treesitter-context.enable = true;
 
       # Project management
       project-nvim.enable = true;
@@ -118,6 +146,28 @@
       # Git integrations
       gitsigns.enable = true;
       diffview.enable = true;
+
+      # TODO/FIXME/NOTE highlights + trouble integration
+      todo-comments.enable = true;
+
+      # Visual undo tree (pairs with undofile = true)
+      undotree.enable = true;
+
+      # In-buffer markdown rendering
+      render-markdown.enable = true;
+
+      # Linting (companion to conform-nvim)
+      lint = {
+        enable = true;
+        lintersByFt = {
+          python = [ "ruff" ];
+          sh = [ "shellcheck" ];
+          javascript = [ "eslint_d" ];
+          typescript = [ "eslint_d" ];
+          javascriptreact = [ "eslint_d" ];
+          typescriptreact = [ "eslint_d" ];
+        };
+      };
 
       # Motions and editing helpers
       hop.enable = true;
@@ -212,8 +262,7 @@
       luasnip.enable = true;
       friendly-snippets.enable = true;
 
-      # Signature help while typing function params
-      lsp-signature.enable = true;
+      # blink-cmp handles signature help via signature.enabled = true
 
       # # LSP configuration
       lsp = {
@@ -229,7 +278,10 @@
           zls.enable = true;
           marksman.enable = true;
           hyprls.enable = true;
-          # hyprls is optional; keep tools available via extraPackages
+          bashls.enable = true;
+          jsonls.enable = true;
+          taplo.enable = true;
+          yamlls.enable = true;
         };
         keymaps = {
           diagnostic = {
@@ -247,13 +299,17 @@
           formatters_by_ft = {
             nix = [ "alejandra" ];
             lua = [ "stylua" ];
+            python = [ "ruff" ];
             javascript = [ "prettierd" ];
             typescript = [ "prettierd" ];
             javascriptreact = [ "prettierd" ];
             typescriptreact = [ "prettierd" ];
             css = [ "prettierd" ];
             html = [ "prettierd" ];
+            json = [ "prettierd" ];
+            yaml = [ "prettierd" ];
             markdown = [ "prettierd" ];
+            toml = [ "taplo" ];
             sh = [ "shfmt" ];
           };
           format_on_save = {
@@ -272,6 +328,76 @@
         mode = [ "i" ];
         action = "<ESC>";
         options.desc = "Exit insert mode";
+      }
+
+      # Save
+      {
+        key = "<leader>w";
+        mode = [ "n" ];
+        action = "<cmd>w<CR>";
+        options.desc = "Save file";
+      }
+
+      # Buffer navigation
+      {
+        key = "]b";
+        mode = [ "n" ];
+        action = "<cmd>bnext<CR>";
+        options.desc = "Next buffer";
+      }
+      {
+        key = "[b";
+        mode = [ "n" ];
+        action = "<cmd>bprev<CR>";
+        options.desc = "Previous buffer";
+      }
+      {
+        key = "<leader>bd";
+        mode = [ "n" ];
+        action = "<cmd>bdelete<CR>";
+        options.desc = "Close buffer";
+      }
+
+      # Window navigation
+      {
+        key = "<C-h>";
+        mode = [ "n" ];
+        action = "<C-w>h";
+        options.desc = "Move to left window";
+      }
+      {
+        key = "<C-j>";
+        mode = [ "n" ];
+        action = "<C-w>j";
+        options.desc = "Move to lower window";
+      }
+      {
+        key = "<C-k>";
+        mode = [ "n" ];
+        action = "<C-w>k";
+        options.desc = "Move to upper window";
+      }
+      {
+        key = "<C-l>";
+        mode = [ "n" ];
+        action = "<C-w>l";
+        options.desc = "Move to right window";
+      }
+
+      # Undotree
+      {
+        key = "<leader>u";
+        mode = [ "n" ];
+        action = "<cmd>UndotreeToggle<CR>";
+        options.desc = "Toggle undo tree";
+      }
+
+      # Todo-comments
+      {
+        key = "<leader>ft";
+        mode = [ "n" ];
+        action = "<cmd>TodoTelescope<CR>";
+        options.desc = "Search TODOs";
       }
 
       # Telescope
@@ -380,7 +506,23 @@
 
     # Runtime tools and language servers
     extraPackages = with pkgs; [
+      # Nix
       nil
+      alejandra
+      # Lua
+      stylua
+      # Python
+      ruff
+      # Web / markup
+      prettierd
+      # Shell
+      shfmt
+      shellcheck
+      # JS linting
+      nodePackages.eslint_d
+      # TOML
+      taplo
+      # Misc tools
       hyprls
       vscode-langservers-extracted
       zls
@@ -390,6 +532,16 @@
 
     # Diagnostic UI and notify background tweaks
     extraConfigLua = ''
+      -- which-key group labels
+      local wk = require("which-key")
+      wk.add({
+        { "<leader>f", group = "Find" },
+        { "<leader>d", group = "Diagnostics" },
+        { "<leader>b", group = "Buffer" },
+        { "<leader>g", group = "Git" },
+        { "<leader>r", group = "Rename/Refactor" },
+        { "<leader>c", group = "Code" },
+      })
       -- Inline diagnostics (virtual text) similar to NVF virtual_lines
       vim.diagnostic.config({
         virtual_text = { prefix = "●", spacing = 2 },
