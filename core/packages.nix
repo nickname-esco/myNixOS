@@ -1,9 +1,5 @@
-{
-  pkgs,
-  ...
-}:
-{
-  environment.shells = with pkgs; [ zsh ];
+{pkgs, ...}: {
+  environment.shells = with pkgs; [zsh];
 
   environment.systemPackages = with pkgs; [
     vim
@@ -26,8 +22,7 @@
     virt-viewer
     virt-manager
     vulkan-loader
-    docker-client
-    docker-compose
+    podman-compose
     bitwarden-desktop
   ];
 }
