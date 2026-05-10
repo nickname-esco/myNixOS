@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   users.users.bahri = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -13,7 +9,6 @@
       "wheel"
       "libvirtd"
       "flatpak"
-      "docker"
     ];
     packages = with pkgs; [
       google-chrome
