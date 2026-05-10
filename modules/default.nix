@@ -14,6 +14,5 @@
     ./nixvim.nix
     ./lazygit.nix
     ./alacritty.nix
-    ./cybersecurity.nix
   ];
 }
