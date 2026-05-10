@@ -11,9 +11,9 @@
     pyright
     python3Packages.pip
     python3Packages.setuptools
+    python3Packages.pynvim        # Neovim Python client (unpinned)
 
-    # Rust
-    rustc
+    # Rust — rustup manages its own rustc, no need for nixpkgs rustc
     rustup
 
     # C/C++
@@ -31,28 +31,35 @@
     nixd
     lua-language-server
     haskell-language-server
-    nodePackages.eslint
     nodePackages.bash-language-server
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
 
     # Formatters
-    black
-    nodePackages.prettier
-    isort
+    ruff           # replaces black + isort for Python
+    alejandra      # Nix formatter (replaces nixpkgs-fmt)
     stylua
-    nixpkgs-fmt
     gofumpt
     shfmt
+    prettierd
+    taplo
+
+    # Shell / linting
+    shellcheck
+    nodePackages.eslint_d          # daemon version (replaces nodePackages.eslint)
 
     # Dependencies
     luajit
     luajitPackages.jsregexp
-    python312Packages.pynvim
-    vimPlugins.telescope-nvim
-    luajitPackages.luarocks_bootstrap
 
     # AST
     tree-sitter
+
+    # Misc tools
+    hyprls
+    zls
+    figlet
+    toilet
   ];
 }
+

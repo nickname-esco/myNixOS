@@ -20,7 +20,6 @@
     nixpkgs,
     home-manager,
     nix-flatpak,
-    nixvim,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
