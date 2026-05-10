@@ -6,14 +6,13 @@
     gopls
 
     # Python
-    uv
+    uv                                  # replaces pip for day-to-day use
     python3
     pyright
-    python3Packages.pip
     python3Packages.setuptools
-    python3Packages.pynvim        # Neovim Python client (unpinned)
+    python3Packages.pynvim              # Neovim Python client (unpinned)
 
-    # Rust — rustup manages its own rustc, no need for nixpkgs rustc
+    # Rust — rustup manages its own rustc
     rustup
 
     # C/C++
@@ -30,14 +29,13 @@
     # LSP servers
     nixd
     lua-language-server
-    haskell-language-server
     nodePackages.bash-language-server
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
 
     # Formatters
-    ruff           # replaces black + isort for Python
-    alejandra      # Nix formatter (replaces nixpkgs-fmt)
+    ruff           # Python formatter + linter (replaces black + isort)
+    alejandra      # Nix formatter
     stylua
     gofumpt
     shfmt
@@ -46,7 +44,7 @@
 
     # Shell / linting
     shellcheck
-    nodePackages.eslint_d          # daemon version (replaces nodePackages.eslint)
+    nodePackages.eslint_d
 
     # Dependencies
     luajit
@@ -58,8 +56,7 @@
     # Misc tools
     hyprls
     zls
-    figlet
-    toilet
+    toilet                              # ASCII art (superset of figlet)
   ];
 }
 
