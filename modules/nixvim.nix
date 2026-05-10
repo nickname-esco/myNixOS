@@ -37,54 +37,39 @@
       clipboard = "unnamedplus";
     };
 
-    # Theme: Cyberdream
-    colorschemes.cyberdream = {
+    # Theme: Catppuccin (mocha)
+    colorschemes.catppuccin = {
       enable = true;
       settings = {
-        variant = "default";
-        transparent = false;
-        saturation = 1;
-        italic_comments = true;
-        terminal_colors = true;
-        hide_fillchars = false;
-        borderless_telescope = true;
-        cache = false;
-        theme = {
-          colors = {
-            bg = "#16181a";
-            bgalt = "#1e2124";
-            fg = "#ffffff";
-            grey = "#7b8496";
-            red = "#ff6e5e";
-            orange = "#ff9f5e";
-            yellow = "#f1ff5e";
-            green = "#5eff6c";
-            cyan = "#5ef1ff";
-            blue = "#5ea1ff";
-            magenta = "#bd5eff";
-            pink = "#ff5ef1";
-            white = "#ffffff";
-          };
-          highlights = {
-            # Make comments more visible (cyberdream's default grey can be subtle)
-            Comment = { fg = "#7b8496"; italic = true; };
+        flavour = "mocha";
+        transparent_background = false;
+        term_colors = true;
+        styles = {
+          comments = [ "italic" ];
+        };
+        integrations = {
+          lualine = true;
+          telescope.enabled = true;
+        };
+        custom_highlights = {
+          # Make comments more visible
+          Comment = { fg = "#7f849c"; style = [ "italic" ]; };
 
-            # Soften the search highlight — the default is quite loud
-            Search = { fg = "#16181a"; bg = "#f1ff5e"; bold = true; };
-            IncSearch = { fg = "#16181a"; bg = "#ff9f5e"; bold = true; };
+          # Soften the search highlight
+          Search = { fg = "#1e1e2e"; bg = "#f9e2af"; style = [ "bold" ]; };
+          IncSearch = { fg = "#1e1e2e"; bg = "#fab387"; style = [ "bold" ]; };
 
-            # Make the current line number stand out more
-            CursorLineNr = { fg = "#5ea1ff"; bold = true; };
+          # Make the current line number stand out more
+          CursorLineNr = { fg = "#89b4fa"; style = [ "bold" ]; };
 
-            # Tone down matching parentheses (default can clash)
-            MatchParen = { fg = "#ff5ef1"; bold = true; underline = true; };
+          # Tone down matching parentheses
+          MatchParen = { fg = "#f5c2e7"; style = [ "bold" "underline" ]; };
 
-            # Visual selection — slightly more visible
-            Visual = { bg = "#2a2d2f"; };
+          # Visual selection — slightly more visible
+          Visual = { bg = "#313244"; };
 
-            # Telescope prompt border to match the blue accent
-            TelescopeBorderPrompt = { fg = "#5ea1ff"; };
-          };
+          # Telescope prompt border to match the blue accent
+          TelescopeBorderPrompt = { fg = "#89b4fa"; };
         };
       };
     };
