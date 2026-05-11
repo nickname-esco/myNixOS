@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   programs.virt-manager.enable = true;
   virtualisation = {
     podman = {
@@ -17,7 +17,7 @@
     spiceUSBRedirection.enable = true;
   };
 
-  environment.etc."containers/registries.conf".text = ''
+  environment.etc."containers/registries.conf".text = lib.mkForce ''
     [registries.search]
     registries = ["docker.io"]
   '';
