@@ -14,5 +14,6 @@
     ./nixvim.nix
     ./lazygit.nix
     ./alacritty.nix
+    ./obs-studio.nix
   ];
 }
