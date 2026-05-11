@@ -17,7 +17,6 @@
     obsidian
     inkscape
     nix-index
-    lazydocker
     mediawriter
     virt-viewer
     virt-manager
