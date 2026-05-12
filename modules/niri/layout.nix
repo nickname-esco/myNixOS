@@ -1,5 +1,4 @@
-{ ... }:
-''
+{...}: ''
   config-notification {
       disable-failed
   }
@@ -14,18 +13,17 @@
       keyboard {
           xkb {
           }
+
           numlock
       }
+
       touchpad {
-          // Natural scrolling inverts scroll direction
-          // Up swipe scrolls down, down swipe scrolls up (natural direction)
           natural-scroll
       }
+
       mouse {
           accel-profile "adaptive"
           accel-speed 1.0
-      }
-      trackpoint {
       }
 
       focus-follows-mouse
@@ -44,7 +42,9 @@
           proportion 1.0
       }
 
-      default-column-width { proportion 0.5; }
+      default-column-width {
+          proportion 0.5
+      }
 
       border {
           width 2
@@ -55,9 +55,6 @@
 
       focus-ring {
           off
-          width 2
-          active-color   "#808080"
-          inactive-color "#505050"
       }
 
       shadow {
@@ -71,7 +68,7 @@
       }
   }
 
-  /-layer-rule {
+  layer-rule {
       match namespace="^quickshell$"
       place-within-backdrop true
   }
@@ -93,30 +90,29 @@
       workspace-switch {
           spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
       }
+
       window-open {
           duration-ms 150
           curve "ease-out-expo"
       }
+
       window-close {
           duration-ms 150
           curve "ease-out-quad"
       }
+
       horizontal-view-movement {
           spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
       }
+
       window-movement {
           spring damping-ratio=0.75 stiffness=323 epsilon=0.0001
       }
+
       window-resize {
           spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
       }
-      config-notification-open-close {
-          spring damping-ratio=0.65 stiffness=923 epsilon=0.001
-      }
-      screenshot-ui-open {
-          duration-ms 200
-          curve "ease-out-quad"
-      }
+
       overview-open-close {
           spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
       }
