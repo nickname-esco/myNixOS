@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     jq
     fd
@@ -12,7 +11,6 @@
     fuse
     slurp
     nitch
-    zinit
     zoxide
     killall
     cliphist
