@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    # Core CLI tools
     jq
     fd
     fzf
@@ -9,22 +10,47 @@
     inxi
     lsof
     fuse
-    slurp
     nitch
     zoxide
     killall
-    cliphist
-    vkbasalt
-    winetricks
-    pkg-config
-    oh-my-posh
-    appimage-run
-    wl-clipboard
-    pay-respects
-    transmission_4
+
+    # Nix tools
     nix-search-cli
     nix-output-monitor
     nix-prefetch-scripts
+
+    # Shell / prompt tools
+    oh-my-posh
+    pay-respects
+
+    # Wayland / niri / Noctalia tools
+    wl-clipboard
+    cliphist
+    grim
+    slurp
+    swappy
+    xwayland-satellite
+
+    # Desktop controls
+    brightnessctl
+    playerctl
+    pamixer
+    pavucontrol
+
+    # Desktop applets / integration
+    networkmanagerapplet
+    nautilus
+
+    # Gaming / Wine
+    vkbasalt
+    winetricks
     wineWowPackages.staging
+
+    # App compatibility / build helpers
+    pkg-config
+    appimage-run
+
+    # Apps
+    transmission_4
   ];
 }
