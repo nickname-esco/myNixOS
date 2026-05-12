@@ -14,7 +14,9 @@
     displayManager = {
       sddm = {
         enable = true;
-        wayland.enable = true;
+        wayland = {
+          enable = true;
+        };
       };
     };
 
@@ -25,6 +27,10 @@
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite
+  ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     kate
