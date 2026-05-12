@@ -41,7 +41,7 @@
           ./configuration.nix
         ];
         specialArgs = {
-          inherit username name;
+          inherit username name inputs;
         };
       };
     };
