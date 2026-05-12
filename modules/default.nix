@@ -2,7 +2,6 @@
   imports = [
     ./nh.nix
     ./git.nix
-    ./zsh.nix
     ./bat.nix
     ./eza.nix
     ./fish.nix
