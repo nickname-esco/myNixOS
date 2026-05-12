@@ -1,7 +1,10 @@
-{ ... }:
-
-{
+{...}: {
   services = {
+    gnome = {
+      gnome-keyring = {
+        enable = true;
+      };
+    };
     syncthing = {
       enable = true;
       user = "bahri";
