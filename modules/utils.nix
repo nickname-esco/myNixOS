@@ -23,24 +23,6 @@
     oh-my-posh
     pay-respects
 
-    # Wayland / niri / Noctalia tools
-    wl-clipboard
-    cliphist
-    grim
-    slurp
-    swappy
-    xwayland-satellite
-
-    # Desktop controls
-    brightnessctl
-    playerctl
-    pamixer
-    pavucontrol
-
-    # Desktop applets / integration
-    networkmanagerapplet
-    nautilus
-
     # Gaming / Wine
     vkbasalt
     winetricks
