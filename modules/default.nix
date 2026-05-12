@@ -10,7 +10,6 @@
     ./unfree.nix
     ./devkit.nix
     ./direnv.nix
-    ./ardour.nix
     ./nixvim.nix
     ./lazygit.nix
     ./alacritty.nix
