@@ -4,7 +4,7 @@
   ...
 }: let
   terminal = "alacritty";
-  browser = "zen-browser";
+  browser = "flatpak run app.zen-browser.zen";
 
   system = pkgs.stdenv.hostPlatform.system;
   noctaliaPkg = inputs.noctalia.packages.${system}.default;

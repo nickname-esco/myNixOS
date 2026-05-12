@@ -1,27 +1,38 @@
 {pkgs, ...}: {
-  environment.shells = with pkgs; [zsh];
-
   environment.systemPackages = with pkgs; [
+    # Editors
     vim
+
+    # Core CLI / terminal utilities
     wget
     git
-    vlc
     tree
     curl
-    gimp
     unzip
-    lorri
     chafa
     ripgrep
+    nix-index
+
+    # Nix tools
+    lorri
+
+    # Desktop apps
     discord
     obsidian
+    bitwarden-desktop
+
+    # Media / graphics
+    vlc
+    gimp
     inkscape
-    nix-index
     mediawriter
+
+    # Virtualisation / containers
     virt-viewer
     virt-manager
-    vulkan-loader
     podman-compose
-    bitwarden-desktop
+
+    # Graphics / Vulkan
+    vulkan-loader
   ];
 }
