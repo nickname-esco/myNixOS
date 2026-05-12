@@ -4,7 +4,6 @@
   ...
 }: let
   terminal = "alacritty";
-  browser = "flatpak run app.zen-browser.zen";
 
   system = pkgs.stdenv.hostPlatform.system;
   noctaliaPkg = inputs.noctalia.packages.${system}.default;
@@ -13,7 +12,7 @@
   layoutModule = import ./layout.nix {};
 
   keybindsModule = import ./keybinds.nix {
-    inherit terminal browser noctaliaBin;
+    inherit terminal noctaliaBin;
   };
 
   windowrulesModule = import ./windowrules.nix {};
@@ -31,6 +30,7 @@ in {
   environment = {
     systemPackages = [
       noctaliaPkg
+      pkgs.xwayland-satellite
     ];
 
     etc."xdg/niri/config.kdl".text = ''

@@ -1,18 +1,21 @@
 {
   terminal,
-  browser,
   noctaliaBin,
   ...
 }: ''
   binds {
+      // Overview / help
       Mod+O repeat=false { toggle-overview; }
       Mod+X repeat=false { toggle-overview; }
       Mod+Shift+Slash { show-hotkey-overlay; }
 
+      // Apps
       Mod+Return { spawn "${terminal}"; }
-      Mod+T { spawn "${terminal}"; }
-      Mod+B { spawn "${browser}"; }
+      Mod+B { spawn "flatpak" "run" "app.zen_browser.zen"; }
+      Mod+G { spawn "steam"; }
+      Mod+M { spawn "flatpak" "run" "com.stremio.Stremio"; }
 
+      // Noctalia
       Mod+Space {
           spawn "${noctaliaBin}" "ipc" "call" "launcher" "toggle";
       }
@@ -25,8 +28,8 @@
           spawn "${noctaliaBin}" "ipc" "call" "controlCenter" "toggle";
       }
 
+      // Session / windows
       Mod+Shift+Q { quit; }
-
       Mod+Q repeat=false { close-window; }
 
       Mod+Alt+F { maximize-column; }
@@ -37,6 +40,7 @@
 
       Mod+V { toggle-column-tabbed-display; }
 
+      // Focus movement
       Mod+Left  { focus-column-left; }
       Mod+Down  { focus-window-down; }
       Mod+Up    { focus-window-up; }
@@ -47,6 +51,7 @@
       Mod+K { focus-window-up; }
       Mod+L { focus-column-right; }
 
+      // Move windows / columns
       Mod+Shift+Left  { move-column-left; }
       Mod+Shift+Down  { move-window-down; }
       Mod+Shift+Up    { move-window-up; }
@@ -57,6 +62,7 @@
       Mod+Shift+K { move-window-up; }
       Mod+Shift+L { move-column-right; }
 
+      // Workspaces
       Mod+U { focus-workspace-down; }
       Mod+I { focus-workspace-up; }
 
@@ -80,6 +86,7 @@
       Mod+Ctrl+8 { move-column-to-workspace 8; }
       Mod+Ctrl+9 { move-column-to-workspace 9; }
 
+      // Sizing
       Mod+R { switch-preset-column-width; }
       Mod+Shift+R { switch-preset-window-height; }
       Mod+Ctrl+R { reset-window-height; }
@@ -90,9 +97,10 @@
       Mod+Minus { set-column-width "-10%"; }
       Mod+Equal { set-column-width "+10%"; }
 
+      // Screenshots
       Print { screenshot; }
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
-      Mod+Shift+S { screenshot; }
+      Mod+Shift+P { screenshot; }
   }
 ''
