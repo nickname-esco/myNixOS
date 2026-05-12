@@ -2,9 +2,6 @@
   programs.fish = {
     enable = true;
 
-    # fzf-fish replaces both fzf-tab (fzf-powered completions/search)
-    # and the raw `fzf --zsh` integration, with directory previews included.
-    # Requires: fzf, fd, bat — all should already be in your environment.
     plugins = [
       {
         name = "fzf-fish";
@@ -12,11 +9,18 @@
       }
     ];
 
+    functions = {
+      fish_mode_prompt.body = "";
+    };
+
     interactiveShellInit = ''
+      # Disable greeting
+      set -g fish_greeting ""
+
       # PATH
       fish_add_path "$HOME/.local/bin"
 
-      # Vi mode (equivalent of `bindkey -v`)
+      # Vi mode
       fish_vi_key_bindings
 
       # Custom keybindings — must come after fish_vi_key_bindings
@@ -24,10 +28,10 @@
       bind -M insert \en history-search-forward    # Alt+n
       bind -M insert \ew backward-kill-word        # Alt+w (nearest to kill-region)
 
-      # fzf-fish directory preview (mirrors fzf-tab's cd/zoxide preview)
+      # fzf-fish directory preview
       set -g FZF_FISH_PREVIEW_DIR_CMD "ls --color"
 
-      # Oh My Posh — no cache-invalidation workaround needed in fish
+      # Oh My Posh
       oh-my-posh init fish --config $HOME/.config/ohmyposh/zen.toml | source
 
       # Zoxide
