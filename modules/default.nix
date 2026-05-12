@@ -5,6 +5,7 @@
     ./zsh.nix
     ./bat.nix
     ./eza.nix
+    ./fish.nix
     ./tmux.nix
     ./utils.nix
     ./unfree.nix
