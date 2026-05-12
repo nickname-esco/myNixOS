@@ -38,7 +38,6 @@
       # System
       update = "nh os switch . -H nixos";
       hms = "nh home switch -c bahri ~/.myNixOS";
-      ll = "ls --color";
       nv = "nvim";
       c = "clear";
       cat = "bat";
