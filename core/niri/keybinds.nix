@@ -94,6 +94,27 @@
           move-window-down;
       }
 
+      // Resize windows
+      Mod+Minus hotkey-overlay-title="Decrease Window Width" {
+          set-column-width "-10%";
+      }
+
+      Mod+Equal hotkey-overlay-title="Increase Window Width" {
+          set-column-width "+10%";
+      }
+
+      Mod+Shift+Minus hotkey-overlay-title="Decrease Window Height" {
+          set-window-height "-10%";
+      }
+
+      Mod+Shift+Equal hotkey-overlay-title="Increase Window Height" {
+          set-window-height "+10%";
+      }
+
+      Mod+Ctrl+R hotkey-overlay-title="Reset Window Height" {
+          reset-window-height;
+      }
+
       // Workspaces
       Mod+1 hotkey-overlay-title="Workspace 1" {
           focus-workspace 1;
