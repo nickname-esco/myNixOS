@@ -1,6 +1,6 @@
 {...}: ''
   window-rule {
-      geometry-corner-radius 9
+      geometry-corner-radius 12
       clip-to-geometry true
       draw-border-with-background false
   }

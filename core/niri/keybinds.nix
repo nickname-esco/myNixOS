@@ -26,17 +26,13 @@
           spawn "flatpak" "run" "com.stremio.Stremio";
       }
 
+      Mod+C hotkey-overlay-title="Open Cider" {
+          spawn "/home/bahri/.local/bin/cider-v3.1.2-linux-x64.AppImage";
+      }
+
       // Noctalia
       Mod+Space hotkey-overlay-title="Open Noctalia Launcher" {
           spawn "${noctaliaBin}" "ipc" "call" "launcher" "toggle";
-      }
-
-      Mod+Comma hotkey-overlay-title="Open Noctalia Settings" {
-          spawn "${noctaliaBin}" "ipc" "call" "settings" "toggle";
-      }
-
-      Mod+Shift+C hotkey-overlay-title="Open Noctalia Control Center" {
-          spawn "${noctaliaBin}" "ipc" "call" "controlCenter" "toggle";
       }
 
       // Session / windows

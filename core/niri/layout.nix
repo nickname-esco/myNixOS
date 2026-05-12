@@ -23,7 +23,7 @@
 
       mouse {
           accel-profile "adaptive"
-          accel-speed 1.0
+          accel-speed 0.0
       }
 
       focus-follows-mouse
@@ -31,7 +31,7 @@
   }
 
   layout {
-      gaps 9
+      gaps 10
 
       center-focused-column "never"
       always-center-single-column
@@ -58,11 +58,11 @@
       }
 
       shadow {
-          softness 30
-          spread 5
-          offset x=0 y=5
-          color "#0007"
-      }
+          softness 45
+          spread 8
+          offset x=0 y=8
+          color "#00000060"
+          }
 
       struts {
       }
@@ -74,13 +74,13 @@
   }
 
   overview {
-      backdrop-color "#1e1e2e"
+      backdrop-color "#181825"
 
       workspace-shadow {
-          softness 40
-          spread 10
-          offset x=0 y=10
-          color "#00000050"
+          softness 50
+          spread 14
+          offset x=0 y=12
+          color "#00000060"
       }
 
       zoom 0.5
@@ -88,33 +88,33 @@
 
   animations {
       workspace-switch {
-          spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
+          spring damping-ratio=0.82 stiffness=380 epsilon=0.0001
       }
 
       window-open {
-          duration-ms 150
+          duration-ms 200
           curve "ease-out-expo"
       }
 
       window-close {
-          duration-ms 150
+          duration-ms 180
           curve "ease-out-quad"
       }
 
       horizontal-view-movement {
-          spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+          spring damping-ratio=0.85 stiffness=380 epsilon=0.0001
       }
 
       window-movement {
-          spring damping-ratio=0.75 stiffness=323 epsilon=0.0001
+          spring damping-ratio=0.85 stiffness=400 epsilon=0.0001
       }
 
       window-resize {
-          spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+          spring damping-ratio=0.85 stiffness=400 epsilon=0.0001
       }
 
       overview-open-close {
-          spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
+          spring damping-ratio=0.85 stiffness=500 epsilon=0.0001
       }
   }
 ''
