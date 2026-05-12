@@ -56,6 +56,7 @@ in {
 
       hotkey-overlay {
           skip-at-startup
+          hide-not-bound
       }
 
       prefer-no-csd
