@@ -45,7 +45,7 @@
       nv = "nvim";
       c = "clear";
       cat = "bat";
-      ".m" = "cd .myNixOS";
+      ".m" = "cd ~/.myNixOS";
       ncg = "nix-collect-garbage -d";
 
       # Git
