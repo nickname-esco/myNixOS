@@ -1,5 +1,6 @@
 {
   imports = [
+    ./niri
     ./nh.nix
     ./git.nix
     ./bat.nix
