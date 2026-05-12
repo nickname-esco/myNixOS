@@ -1,6 +1,6 @@
-{ ... }:
-{
+{...}: {
   imports = [
+    ./niri
     ./user.nix
     ./boot.nix
     ./unfree.nix
