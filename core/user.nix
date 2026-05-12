@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   users.users.bahri = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     ignoreShellProgramCheck = true;
     description = "Bahri";
     extraGroups = [
