@@ -14,7 +14,7 @@
       match app-id=r#"^app\.zen_browser\.zen$"#
 
       default-column-width {
-          proportion 0.66667
+          proportion 0.5
       }
   }
 ''
