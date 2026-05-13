@@ -15,6 +15,9 @@
         wayland = {
           enable = true;
         };
+        theme = "catppuccin-mocha";
+        package = pkgs.kdePackages.sddm;
+        extraPackages = [pkgs.catppuccin-sddm];
       };
     };
     gvfs = {
