@@ -38,7 +38,6 @@
     package = pkgs.catppuccin-cursors.mochaDark;
     size = 24;
     gtk.enable = true;
-    x11.enable = true;
   };
 
   # Qt apps follow GTK theme so everything looks consistent
