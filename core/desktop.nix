@@ -18,6 +18,16 @@
         theme = "catppuccin-mocha";
         package = pkgs.kdePackages.sddm;
         extraPackages = [pkgs.catppuccin-sddm];
+        settings = {
+          General = {
+            Numlock = "on";
+          };
+          Theme = {
+            CursorTheme = "catppuccin-mocha-dark-cursors";
+            CursorSize = "24";
+            Font = "JetBrainsMono Nerd Font";
+          };
+        };
       };
     };
     gvfs = {
