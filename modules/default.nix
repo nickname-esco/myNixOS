@@ -4,6 +4,7 @@
     ./git.nix
     ./bat.nix
     ./eza.nix
+    ./mpv.nix
     ./fish.nix
     ./tmux.nix
     ./utils.nix
