@@ -51,6 +51,7 @@ in {
           MOZ_ENABLE_WAYLAND "1"
           QT_QPA_PLATFORM "wayland"
           ELECTRON_OZONE_PLATFORM_HINT "wayland"
+          GDK_BACKEND "wayland,x11"
           TERMINAL "${terminal}"
       }
 
