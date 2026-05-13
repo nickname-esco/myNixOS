@@ -52,6 +52,7 @@ in {
           QT_QPA_PLATFORM "wayland"
           ELECTRON_OZONE_PLATFORM_HINT "wayland"
           GDK_BACKEND "wayland,x11"
+          GTK_THEME "catppuccin-mocha-mauve-standard+default:dark"
           TERMINAL "${terminal}"
       }
 
