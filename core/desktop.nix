@@ -59,7 +59,7 @@
         "video/mp4" = "mpv.desktop";
         "video/x-matroska" = "mpv.desktop";
         "video/webm" = "mpv.desktop";
-        "application/pdf" = "org.pwmt.zathura.desktop";
+        "application/pdf" = "org.gnome.Evince.desktop";
         "text/plain" = "nvim.desktop";
       };
     };
@@ -69,8 +69,8 @@
     systemPackages = with pkgs; [
       ffmpegthumbnailer
       xarchiver
-      zathura
       poppler
+      evince
       libgsf
       imv
     ];
