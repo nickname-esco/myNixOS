@@ -1,16 +1,14 @@
 {pkgs, ...}: {
+  # Display Manager
   services = {
     xserver = {
       enable = true;
-
       xkb = {
         layout = "us";
         variant = "";
       };
-
       excludePackages = [pkgs.xterm];
     };
-
     displayManager = {
       sddm = {
         enable = true;
@@ -19,22 +17,34 @@
         };
       };
     };
-
-    # Keep Plasma for now as a fallback session.
-    desktopManager = {
-      plasma6 = {
-        enable = true;
-      };
+    gvfs = {
+      enable = true;
+    };
+    tumbler = {
+      enable = true;
     };
   };
-
+  # Programs
+  programs = {
+    xfconf.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+  };
+  # Default Applications
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = "thunar.desktop";
+    };
+  };
+  # Packages
   environment.systemPackages = with pkgs; [
-    xwayland-satellite
-  ];
-
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    kate
-    elisa
-    konsole
+    ffmpegthumbnailer
+    xarchiver
   ];
 }
