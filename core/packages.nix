@@ -22,7 +22,6 @@
     bitwarden-desktop
 
     # Media / graphics
-    vlc
     gimp
     inkscape
     mediawriter
