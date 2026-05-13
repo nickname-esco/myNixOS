@@ -6,9 +6,13 @@
   }
 
   window-rule {
-    match app-id="thunar"
-    opacity 0.85
+      match app-id=r#"^thunar$"#
+      opacity 0.85
+  }
+
+  window-rule {
       match app-id=r#"^(zen|zen-browser|zen-beta)$"#
+
       default-column-width {
           proportion 0.75
       }
