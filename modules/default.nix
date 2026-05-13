@@ -2,6 +2,7 @@
   imports = [
     ./nh.nix
     ./git.nix
+    ./gtk.nix
     ./bat.nix
     ./eza.nix
     ./mpv.nix

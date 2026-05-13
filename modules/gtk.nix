@@ -18,12 +18,6 @@
       };
     };
 
-    cursorTheme = {
-      name = "catppuccin-mocha-dark-cursors";
-      package = pkgs.catppuccin-cursors.mochaDark;
-      size = 24;
-    };
-
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 11;
