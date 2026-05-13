@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   gtk = {
     enable = true;
-
     theme = {
       name = "catppuccin-mocha-mauve-standard+default";
       package = pkgs.catppuccin-gtk.override {
@@ -9,7 +8,6 @@
         variant = "mocha";
       };
     };
-
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
@@ -17,22 +15,28 @@
         flavor = "mocha";
       };
     };
-
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 11;
     };
-
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
-
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
   };
 
-  # Cursor applied system-wide (Wayland + X11)
+  xfconf.settings = {
+    xsettings = {
+      "Net/ThemeName" = "catppuccin-mocha-mauve-standard+default";
+      "Net/IconThemeName" = "Papirus-Dark";
+      "Gtk/FontName" = "JetBrainsMono Nerd Font 11";
+      "Net/EnableEventSounds" = 0;
+    };
+  };
+
+  # Cursor applied system-wide
   home.pointerCursor = {
     name = "catppuccin-mocha-dark-cursors";
     package = pkgs.catppuccin-cursors.mochaDark;
@@ -40,7 +44,7 @@
     gtk.enable = true;
   };
 
-  # Qt apps follow GTK theme so everything looks consistent
+  # Qt apps follow GTK theme
   qt = {
     enable = true;
     platformTheme.name = "gtk";
