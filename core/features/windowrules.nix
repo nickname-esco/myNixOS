@@ -11,7 +11,7 @@
   }
 
   window-rule {
-      match app-id=r#"^(zen|zen-browser|zen-beta)$"#
+      match app-id=r#"^app\.zen_browser\.zen$"#
 
       default-column-width {
           proportion 0.75
