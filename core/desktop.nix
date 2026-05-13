@@ -26,7 +26,9 @@
   };
   # Programs
   programs = {
-    xfconf.enable = true;
+    xfconf = {
+      enable = true;
+    };
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
@@ -35,16 +37,40 @@
       ];
     };
   };
-  # Default Applications
-  xdg.mime = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = "thunar.desktop";
+  # XDG
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      config = {
+        common = {
+          default = ["gtk"];
+        };
+      };
+    };
+    mime = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = "thunar.desktop";
+        "image/jpeg" = "imv.desktop";
+        "image/png" = "imv.desktop";
+        "image/gif" = "imv.desktop";
+        "image/webp" = "imv.desktop";
+        "video/mp4" = "mpv.desktop";
+        "video/x-matroska" = "mpv.desktop";
+        "video/webm" = "mpv.desktop";
+        "application/pdf" = "org.pwmt.zathura.desktop";
+        "text/plain" = "nvim.desktop";
+      };
     };
   };
   # Packages
-  environment.systemPackages = with pkgs; [
-    ffmpegthumbnailer
-    xarchiver
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      ffmpegthumbnailer
+      xarchiver
+      poppler
+      libgsf
+    ];
+  };
 }
