@@ -69,8 +69,10 @@
     systemPackages = with pkgs; [
       ffmpegthumbnailer
       xarchiver
+      zathura
       poppler
       libgsf
+      imv
     ];
   };
 }
