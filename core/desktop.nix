@@ -86,6 +86,7 @@
       catppuccin-sddm
       ffmpegthumbnailer
       xarchiver
+      xfce.exo
       poppler
       evince
       libgsf
