@@ -2,7 +2,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "catppuccin-mocha-mauve-standard+default";
+      name = "catppuccin-mocha-mauve-standard";
       package = pkgs.catppuccin-gtk.override {
         accents = ["mauve"];
         variant = "mocha";
@@ -27,9 +27,18 @@
     };
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "catppuccin-mocha-mauve-standard";
+      icon-theme = "Papirus-Dark";
+      color-scheme = "prefer-dark";
+      font-name = "JetBrainsMono Nerd Font 11";
+    };
+  };
+
   xfconf.settings = {
     xsettings = {
-      "Net/ThemeName" = "catppuccin-mocha-mauve-standard+default";
+      "Net/ThemeName" = "catppuccin-mocha-mauve-standard";
       "Net/IconThemeName" = "Papirus-Dark";
       "Gtk/FontName" = "JetBrainsMono Nerd Font 11";
       "Net/EnableEventSounds" = 0;

@@ -15,10 +15,9 @@
         wayland = {
           enable = true;
         };
-        theme = "catppuccin-mocha";
+        theme = "catppuccin-mocha-mauve";
         package = pkgs.kdePackages.sddm;
         extraPackages = with pkgs; [
-          catppuccin-sddm
           kdePackages.qt5compat
           kdePackages.qtmultimedia
         ];
@@ -84,6 +83,7 @@
   # Packages
   environment = {
     systemPackages = with pkgs; [
+      catppuccin-sddm
       ffmpegthumbnailer
       xarchiver
       poppler
