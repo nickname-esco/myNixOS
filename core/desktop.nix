@@ -17,7 +17,11 @@
         };
         theme = "catppuccin-mocha";
         package = pkgs.kdePackages.sddm;
-        extraPackages = [pkgs.catppuccin-sddm];
+        extraPackages = with pkgs; [
+          catppuccin-sddm
+          kdePackages.qt5compat
+          kdePackages.qtmultimedia
+        ];
         settings = {
           General = {
             Numlock = "on";
