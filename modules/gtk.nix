@@ -1,12 +1,14 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  catppuccinGtk = pkgs.catppuccin-gtk.override {
+    accents = ["mauve"];
+    variant = "mocha";
+  };
+in {
   gtk = {
     enable = true;
     theme = {
       name = "catppuccin-mocha-mauve-standard";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["mauve"];
-        variant = "mocha";
-      };
+      package = catppuccinGtk;
     };
     iconTheme = {
       name = "Papirus-Dark";
@@ -25,6 +27,12 @@
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
+  };
+
+  # Assets for libadwaita apps
+  home.file.".config/gtk-4.0/assets" = {
+    source = "${catppuccinGtk}/share/themes/catppuccin-mocha-mauve-standard/gtk-4.0/assets";
+    recursive = true;
   };
 
   dconf.settings = {
