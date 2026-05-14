@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{...}: {
   imports = [
     ./modules
   ];
@@ -17,6 +14,11 @@
     TERMINAL = "alacritty";
     NIXOS_OZONE_WL = "1";
     WRL_NO_HARDWARE_CURSORS = "1";
+    GTK_THEME = "catppuccin-mocha-mauve-standard:dark";
+  };
+
+  systemd.user.sessionVariables = {
+    GTK_THEME = "catppuccin-mocha-mauve-standard:dark";
   };
 
   programs.home-manager.enable = true;
