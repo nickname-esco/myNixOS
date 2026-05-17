@@ -21,7 +21,6 @@
     nix-prefetch-scripts
 
     # Shell / prompt tools
-    oh-my-posh
     pay-respects
 
     # Gaming / Wine

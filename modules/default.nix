@@ -1,5 +1,6 @@
 {
   imports = [
+    ./omp
     ./nh.nix
     ./git.nix
     ./gtk.nix
