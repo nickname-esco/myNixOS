@@ -13,6 +13,7 @@
     nitch
     zoxide
     killall
+    wl-clipboard
 
     # Nix tools
     nix-search-cli
