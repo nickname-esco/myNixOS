@@ -3,67 +3,65 @@
   programs.tmux = {
     enable = true;
     mouse = true;
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = "${pkgs.fish}/bin/fish";
     prefix = "C-a";
     terminal = "wezterm";
     keyMode = "vi";
 
     extraConfig = ''
-              set-option -g status-position top
+      set-option -g status-position top
 
-              #set -g default-terminal "screen-256color"
-              set-option -g history-limit 5000
-              unbind %
-              unbind '"'
+      # set -g default-terminal "screen-256color"
+      set-option -g history-limit 5000
 
-              bind-key h select-pane -L
-              bind-key j select-pane -D
-              bind-key k select-pane -U
-              bind-key l select-pane -R
+      unbind %
+      unbind '"'
 
-              set -gq allow-passthrough on
-              bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+      bind-key h select-pane -L
+      bind-key j select-pane -D
+      bind-key k select-pane -U
+      bind-key l select-pane -R
 
-              bind-key -n C-Tab next-window
-              bind-key -n C-S-Tab previous-window
-              bind-key -n M-Tab new-window
+      set -gq allow-passthrough on
+      bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
 
+      bind-key -n C-Tab next-window
+      bind-key -n C-S-Tab previous-window
+      bind-key -n M-Tab new-window
 
-            # Start windows and panes index at 1, not 0.
-            set -g base-index 1
-            setw -g pane-base-index 1
+      # Start windows and panes index at 1, not 0.
+      set -g base-index 1
+      setw -g pane-base-index 1
 
+      bind-key "|" split-window -h -c "#{pane_current_path}"
+      bind-key "\\" split-window -fh -c "#{pane_current_path}"
 
-            bind-key "|" split-window -h -c "#{pane_current_path}"
-            bind-key "\\" split-window -fh -c "#{pane_current_path}"
+      bind-key "-" split-window -v -c "#{pane_current_path}"
+      bind-key "_" split-window -fv -c "#{pane_current_path}"
 
-            bind-key "-" split-window -v -c "#{pane_current_path}"
-            bind-key "_" split-window -fv -c "#{pane_current_path}"
+      bind -r C-j resize-pane -D 15
+      bind -r C-k resize-pane -U 15
+      bind -r C-h resize-pane -L 15
+      bind -r C-l resize-pane -R 15
 
-            bind -r C-j resize-pane -D 15
-            bind -r C-k resize-pane -U 15
-            bind -r C-h resize-pane -L 15
-            bind -r C-l resize-pane -R 15
+      # 'c' to new window
+      bind-key c new-window
 
-            # 'c' to new window
-            bind-key  c new-window
+      # 'n' next window
+      bind-key n next-window
 
-            # 'n' next  window
-            bind-key  n next-window
+      # 'p' previous window
+      bind-key p previous-window
 
-            # 'p' next  previous
-            bind-key  n previous-window
+      unbind r
+      bind r source-file ~/.config/tmux/tmux.conf
 
-            unbind r
-            bind r source-file ~/.config/tmux/tmux.conf
+      bind -r m resize-pane -Z
 
-            bind -r m resize-pane -Z
-
-            bind-key  t clock-mode
-            bind-key  q display-panes
-            bind-key  u refresh-client
-            bind-key  o select-pane -t :.+
-
+      bind-key t clock-mode
+      bind-key q display-panes
+      bind-key u refresh-client
+      bind-key o select-pane -t :.+
 
       ##### Display Popups #####
 
@@ -72,7 +70,9 @@
         -w 80% \
         -h 80% \
         -E "lazygit"
+
       bind C-n display-popup -E 'bash -i -c "read -p \"Session name: \" name; tmux new-session -d -s \$name && tmux switch-client -t \$name"'
+
       bind C-j display-popup -E "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
 
       bind C-r display-popup \
@@ -80,16 +80,19 @@
         -w 90% \
         -h 90% \
         -E "yazi"
+
       bind C-z display-popup \
         -w 90% \
         -h 90% \
         -E 'nvim ~/ddubsos/flake.nix'
-      #bind C-g display-popup -E "bash -i ~/.tmux/scripts/chat-popup.sh"
+
+      # bind C-g display-popup -E "bash -i ~/.tmux/scripts/chat-popup.sh"
+
       bind C-t display-popup \
         -d "#{pane_current_path}" \
         -w 75% \
         -h 75% \
-        -E "zsh"
+        -E "fish"
     '';
 
     plugins = with pkgs; [
