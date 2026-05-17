@@ -16,7 +16,6 @@
     ./direnv.nix
     ./nixvim.nix
     ./lazygit.nix
-    ./starship.nix
     ./obs-studio.nix
   ];
 }
