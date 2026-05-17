@@ -15,37 +15,19 @@
       };
 
       logo = {
-        type = "chafa";
+        # Real PNG rendering for Kitty.
+        type = "kitty-direct";
+
         source = "${config.xdg.configHome}/fastfetch/nixos.png";
 
-        # Medium PNG render.
-        # Increase these slightly if the image still looks too rough.
-        width = 40;
-        height = 20;
-
-        recache = true;
-
-        chafa = {
-          # Cleaner and less noisy than the default mixed-symbol render.
-          symbols = "space+solid";
-
-          # Use full terminal color support.
-          canvasMode = "TRUECOLOR";
-
-          # Better perceptual color matching.
-          colorSpace = "DIN99D";
-
-          # Avoid noisy dithering.
-          ditherMode = "NONE";
-
-          # Allow foreground/background colors for better shape.
-          fgOnly = false;
-        };
+        # Smaller than before so the text has more room.
+        width = 24;
+        height = 12;
 
         padding = {
           top = 1;
           left = 2;
-          right = 3;
+          right = 1;
         };
       };
 
@@ -105,7 +87,7 @@
 
         {
           type = "host";
-          format = "{5} {1} Type {2}";
+          format = "{5} {2}";
           key = "󰋩 PC    ";
           keyColor = "38;2;250;179;135"; # Peach
         }
