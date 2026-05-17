@@ -31,9 +31,6 @@
       # fzf-fish directory preview
       set -g FZF_FISH_PREVIEW_DIR_CMD "ls --color"
 
-      # Oh My Posh
-      oh-my-posh init fish --config $HOME/.config/ohmyposh/zen.toml | source
-
       # Zoxide
       zoxide init fish | source
     '';
