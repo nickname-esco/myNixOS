@@ -20,14 +20,16 @@
 
         source = "${config.xdg.configHome}/fastfetch/nixos.png";
 
-        # Smaller than before so the text has more room.
-        width = 24;
-        height = 12;
+        # Smaller logo for a cleaner, sharper look.
+        width = 20;
+        height = 10;
 
         padding = {
           top = 1;
           left = 2;
-          right = 1;
+
+          # Gives the text block more breathing room from the logo.
+          right = 4;
         };
       };
 

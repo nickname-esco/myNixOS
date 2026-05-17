@@ -19,7 +19,7 @@
       }
 
       // Apps
-      Mod+Return hotkey-overlay-title="Open Alacritty" {
+      Mod+Return hotkey-overlay-title="Open Kitty" {
           spawn "${terminal}";
       }
 
