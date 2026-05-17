@@ -1,6 +1,5 @@
 {
   imports = [
-    ./fastfetch
     ./nh.nix
     ./git.nix
     ./gtk.nix
@@ -9,6 +8,8 @@
     ./mpv.nix
     ./fish.nix
     ./tmux.nix
+    ./kitty.nix
+    ./fastfetch
     ./utils.nix
     ./unfree.nix
     ./devkit.nix
