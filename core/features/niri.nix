@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  terminal = "alacritty";
+  terminal = "kitty";
 
   system = pkgs.stdenv.hostPlatform.system;
   noctaliaPkg = inputs.noctalia.packages.${system}.default;
