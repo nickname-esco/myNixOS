@@ -5,7 +5,7 @@
     mouse = true;
     shell = "${pkgs.fish}/bin/fish";
     prefix = "C-a";
-    terminal = "wezterm";
+    terminal = "kitty";
     keyMode = "vi";
 
     extraConfig = ''
