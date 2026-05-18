@@ -1,13 +1,7 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   terminal = "kitty";
 
-  system = pkgs.stdenv.hostPlatform.system;
-  noctaliaPkg = inputs.noctalia.packages.${system}.default;
-  noctaliaBin = "${noctaliaPkg}/bin/noctalia-shell";
+  noctaliaBin = "noctalia-shell";
 
   layoutModule = import ./layout.nix {};
 
@@ -29,7 +23,6 @@ in {
 
   environment = {
     systemPackages = [
-      noctaliaPkg
       pkgs.xwayland-satellite
     ];
 

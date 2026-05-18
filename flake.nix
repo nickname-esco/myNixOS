@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,8 +17,10 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak";
     };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -36,10 +39,12 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
+
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
           ./configuration.nix
         ];
+
         specialArgs = {
           inherit username name inputs;
         };
@@ -49,9 +54,11 @@
     homeConfigurations = {
       bahri = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+
         modules = [
           ./home.nix
         ];
+
         extraSpecialArgs = {
           inherit username name inputs;
         };
