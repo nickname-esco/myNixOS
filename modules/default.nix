@@ -9,6 +9,7 @@
     ./mpv.nix
     ./fish.nix
     ./tmux.nix
+    ./noctalia
     ./kitty.nix
     ./fastfetch
     ./utils.nix
