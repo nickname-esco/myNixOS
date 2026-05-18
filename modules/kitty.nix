@@ -17,8 +17,6 @@
       bold_font = "IBM Plex Mono Bold";
       italic_font = "IBM Plex Mono Italic";
       bold_italic_font = "IBM Plex Mono Bold Italic";
-
-      # Similar to Alacritty font offset y = 1
       modify_font = "baseline 1";
 
       # Window

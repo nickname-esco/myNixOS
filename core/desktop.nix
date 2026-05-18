@@ -9,6 +9,7 @@
       };
       excludePackages = [pkgs.xterm];
     };
+
     displayManager = {
       sddm = {
         enable = true;
@@ -33,6 +34,7 @@
         };
       };
     };
+
     gvfs = {
       enable = true;
     };
@@ -40,7 +42,7 @@
       enable = true;
     };
   };
-  # Programs
+
   programs = {
     xfconf = {
       enable = true;
@@ -53,7 +55,7 @@
       ];
     };
   };
-  # XDG
+
   xdg = {
     portal = {
       enable = true;
@@ -64,6 +66,7 @@
         };
       };
     };
+
     mime = {
       enable = true;
       defaultApplications = {
@@ -80,7 +83,7 @@
       };
     };
   };
-  # Packages
+
   environment = {
     systemPackages = with pkgs; [
       catppuccin-sddm

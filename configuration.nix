@@ -1,14 +1,9 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   imports = [
     ./core
     ./hardware-configuration.nix
   ];
 
-  # nix-ld: shared library shims for unpackaged binaries
   programs = {
     nix-ld = {
       enable = true;

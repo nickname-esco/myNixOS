@@ -9,7 +9,6 @@
     tree
     curl
     unzip
-    chafa
     ripgrep
     nix-index
 

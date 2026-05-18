@@ -6,21 +6,26 @@
         enable = true;
       };
     };
+
     syncthing = {
       enable = true;
       user = "bahri";
       dataDir = "/home/bahri";
       configDir = "/home/bahri/.config/syncthing";
     };
+
     fwupd = {
       enable = true;
     };
+
     fstrim = {
       enable = true;
     };
+
     blueman = {
       enable = true;
     };
+
     openssh = {
       enable = true;
       settings = {
@@ -28,9 +33,11 @@
         PermitRootLogin = "no";
       };
     };
+
     printing = {
       enable = false;
     };
+
     pipewire = {
       enable = true;
       alsa = {
@@ -45,7 +52,7 @@
       };
     };
   };
-  # Security
+
   security = {
     rtkit = {
       enable = true;

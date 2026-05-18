@@ -5,8 +5,6 @@
 }: let
   terminal = "kitty";
 
-  # Noctalia is now installed by Home Manager.
-  # This points niri to the Home Manager/user-profile binary directly.
   noctaliaBin = "/home/${username}/.nix-profile/bin/noctalia-shell";
 
   layoutModule = import ./layout.nix {};
