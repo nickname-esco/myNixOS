@@ -15,20 +15,16 @@
       };
 
       logo = {
-        # Real PNG rendering for Kitty.
         type = "kitty-direct";
 
         source = "${config.xdg.configHome}/fastfetch/nixos.png";
 
-        # Smaller logo for a cleaner, sharper look.
         width = 20;
         height = 10;
 
         padding = {
           top = 1;
           left = 2;
-
-          # Gives the text block more breathing room from the logo.
           right = 4;
         };
       };

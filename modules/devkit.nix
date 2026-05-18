@@ -1,18 +1,17 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # Go
     go
     gopls
 
     # Python
-    uv                                  # replaces pip for day-to-day use
+    uv
     python3
     pyright
     python3Packages.setuptools
-    python3Packages.pynvim              # Neovim Python client (unpinned)
+    python3Packages.pynvim
 
-    # Rust — rustup manages its own rustc
+    # Rust
     rustup
 
     # C/C++
@@ -34,8 +33,8 @@
     nodePackages.vscode-langservers-extracted
 
     # Formatters
-    ruff           # Python formatter + linter (replaces black + isort)
-    alejandra      # Nix formatter
+    ruff
+    alejandra
     stylua
     gofumpt
     shfmt
@@ -56,7 +55,6 @@
     # Misc tools
     hyprls
     zls
-    toilet                              # ASCII art (superset of figlet)
+    toilet
   ];
 }
-
