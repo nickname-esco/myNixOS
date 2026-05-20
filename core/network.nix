@@ -8,7 +8,7 @@
       enable = true;
 
       allowedTCPPorts = [];
-      allowedUDPPorts = [];
+      allowedUDPPorts = [] 51820;
 
       extraInputRules = ''
         # SSH — restricted to local subnet only
