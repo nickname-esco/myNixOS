@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{...}: {
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
@@ -10,8 +7,8 @@
     firewall = {
       enable = true;
 
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
 
       extraInputRules = ''
         # SSH — restricted to local subnet only
@@ -23,7 +20,7 @@
       '';
 
       logRefusedConnections = true;
-      checkReversePath = "strict";
+      checkReversePath = "loose";
     };
   };
 }
