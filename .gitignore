@@ -24,11 +24,7 @@ home-manager-build/
 .DS_Store
 Thumbs.db
 
-# Secrets
-secrets/
-secrets/default.nix
-secrets/wireguard.nix
-secrets/duckdns.nix
+# Secret/private key material
 *.key
 *.pem
 *.gpg
