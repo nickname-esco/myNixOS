@@ -17,7 +17,7 @@
         peers = [
           {
             # Phone
-            publicKey = "wCqublx1RN7TGhzy+6gmgZ8aHiqt2fh99Am3pn6nelA=";
+            publicKey = "SWu37BJZWoymIkjyWVPQqhjquMdrOqJp3n+5zMdlsyE=";
             allowedIPs = ["10.0.0.2/32"];
           }
         ];
