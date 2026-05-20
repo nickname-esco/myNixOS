@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = [pkgs.wireguard-tools];
 
   networking = {
@@ -20,11 +15,11 @@
         privateKeyFile = "/etc/wireguard/server.key";
 
         peers = [
-          # Peers added here after key generation
-          # {
-          #   publicKey = "PEER_PUBLIC_KEY_HERE";
-          #   allowedIPs = [ "10.0.0.2/32" ];
-          # }
+          {
+            # Phone
+            publicKey = "jlIeu12iBxBecXR//3mcMGJ73FIjij+GcnJCrJB+ZSs=";
+            allowedIPs = ["10.0.0.2/32"];
+          }
         ];
       };
     };
