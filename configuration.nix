@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./core
-    ./secrets
+    ./wireguard
     ./hardware-configuration.nix
   ];
 
