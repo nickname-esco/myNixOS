@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./core
+    ./secrets
     ./hardware-configuration.nix
   ];
 
