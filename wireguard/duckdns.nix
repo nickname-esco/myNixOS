@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   systemd = {
     services.duckdns = {
       description = "DuckDNS Dynamic DNS Updater";
@@ -11,6 +6,7 @@
       wants = ["network-online.target"];
       serviceConfig = {
         Type = "oneshot";
+        RemainAfterExit = true;
         ExecStart = pkgs.writeShellScript "duckdns-update" ''
           TOKEN=$(cat /etc/duckdns/token)
           ${pkgs.curl}/bin/curl -s \

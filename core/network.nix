@@ -19,6 +19,11 @@
         ip saddr 192.168.20.0/24 udp dport { 22000, 21027 } accept
       '';
 
+      extraForwardRules = ''
+        iifname "wg0" accept
+        oifname "wg0" accept
+      '';
+
       logRefusedConnections = true;
       checkReversePath = "loose";
     };
