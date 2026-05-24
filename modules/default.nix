@@ -18,6 +18,5 @@
     ./direnv.nix
     ./nixvim.nix
     ./lazygit.nix
-    ./obs-studio.nix
   ];
 }
