@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./core
-    ./wireguard
     ./hardware-configuration.nix
   ];
 
