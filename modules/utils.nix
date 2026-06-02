@@ -23,10 +23,8 @@
     # Shell / prompt tools
     pay-respects
 
-    # Gaming / Wine
+    # Gaming
     vkbasalt
-    winetricks
-    wineWowPackages.staging
 
     # App compatibility / build helpers
     pkg-config

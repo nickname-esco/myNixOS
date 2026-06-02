@@ -15,11 +15,6 @@
     # Nix tools
     lorri
 
-    # Desktop apps
-    discord
-    obsidian
-    bitwarden-desktop
-
     # Media / graphics
     gimp
     inkscape

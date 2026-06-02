@@ -28,9 +28,9 @@
     # LSP servers
     nixd
     lua-language-server
-    nodePackages.bash-language-server
-    nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted
+    bash-language-server
+    typescript-language-server
+    vscode-langservers-extracted
 
     # Formatters
     ruff
@@ -43,7 +43,7 @@
 
     # Shell / linting
     shellcheck
-    nodePackages.eslint_d
+    eslint_d
 
     # Dependencies
     luajit
