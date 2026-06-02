@@ -6,7 +6,7 @@
   home = {
     username = "bahri";
     homeDirectory = "/home/bahri";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
   };
 
   home.sessionVariables = {

@@ -38,6 +38,7 @@
     gvfs = {
       enable = true;
     };
+
     tumbler = {
       enable = true;
     };
@@ -47,9 +48,10 @@
     xfconf = {
       enable = true;
     };
+
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
+      plugins = with pkgs; [
         thunar-archive-plugin
         thunar-volman
       ];
@@ -89,7 +91,7 @@
       catppuccin-sddm
       ffmpegthumbnailer
       xarchiver
-      xfce.exo
+      xfce4-exo
       poppler
       evince
       libgsf
