@@ -1,12 +1,26 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  nixpkgs.overlays = [
+    (final: prev: {
+      steam = prev.steam.override {
+        extraArgs = "-cef-disable-gpu-compositing";
+      };
+    })
+  ];
+
+  security.wrappers.bwrap = lib.mkForce {
+    owner = "root";
+    group = "root";
+    source = "${pkgs.bubblewrap}/bin/bwrap";
+    setuid = false;
+  };
+
   programs = {
     steam = {
       enable = true;
-
-      package = pkgs.steam.override {
-        extraArgs = "-cef-disable-gpu-compositing";
-      };
-
       gamescopeSession.enable = true;
       extraCompatPackages = [pkgs.proton-ge-bin];
     };
