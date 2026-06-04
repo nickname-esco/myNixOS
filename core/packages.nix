@@ -3,9 +3,6 @@
     # Editors
     vim
 
-    # AI / LLM Tools
-    ollama
-
     # Core CLI / terminal utilities
     wget
     git
