@@ -110,6 +110,13 @@
 
           # Telescope prompt border to match the blue accent
           TelescopeBorderPrompt = {fg = "#89b4fa";};
+
+          # Floating windows, including CodeCompanion chat
+          NormalFloat = {bg = "#1e1e2e";};
+          FloatBorder = {
+            fg = "#89b4fa";
+            bg = "#1e1e2e";
+          };
         };
       };
     };
@@ -265,6 +272,72 @@
           display = {
             action_palette = {
               provider = "telescope";
+              opts = {
+                title = "󰚩 AI actions";
+              };
+            };
+
+            chat = {
+              window = {
+                layout = "float";
+                width = 0.85;
+                height = 0.82;
+                border = "rounded";
+                relative = "editor";
+                opts = {
+                  breakindent = true;
+                  linebreak = true;
+                  wrap = true;
+                  number = false;
+                  relativenumber = false;
+                  signcolumn = "no";
+                  foldcolumn = "0";
+                  winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder";
+                };
+              };
+
+              floating_window = {
+                width = 0.85;
+                height = 0.82;
+                border = "rounded";
+                relative = "editor";
+                opts = {
+                  breakindent = true;
+                  linebreak = true;
+                  wrap = true;
+                  number = false;
+                  relativenumber = false;
+                  signcolumn = "no";
+                  foldcolumn = "0";
+                  winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder";
+                };
+              };
+
+              intro_message = "󰚩 Local AI • qwen2.5-coder:3b • press ? for options";
+              separator = "─";
+              show_header_separator = false;
+              show_settings = false;
+              show_token_count = true;
+              start_in_insert_mode = false;
+            };
+
+            input = {
+              window = {
+                border = "rounded";
+                relative = "cursor";
+                title_pos = "left";
+                opts = {
+                  number = false;
+                  relativenumber = false;
+                  signcolumn = "no";
+                  foldcolumn = "0";
+                  statuscolumn = "";
+                  breakindent = true;
+                  linebreak = true;
+                  wrap = true;
+                  winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder";
+                };
+              };
             };
           };
 
