@@ -18,6 +18,7 @@
       relativenumber = true;
       shiftwidth = 2;
       tabstop = 2;
+      softtabstop = 2;
       expandtab = true;
       smartindent = true;
       wrap = false;
@@ -25,9 +26,8 @@
       termguicolors = true;
       signcolumn = "yes";
       updatetime = 200;
+      timeoutlen = 300;
       cursorline = true;
-      spell = true;
-      spelllang = ["en"];
       # Send all yanks/deletes to the system clipboard (Wayland/X11)
       clipboard = "unnamedplus";
       # Scroll padding — keep cursor away from screen edges
@@ -43,8 +43,6 @@
       undofile = true;
       # Encoding
       fileencoding = "utf-8";
-      # Conceal for markdown rendering
-      conceallevel = 2;
     };
 
     # Theme: Catppuccin (mocha)
@@ -70,7 +68,6 @@
           illuminate.enabled = true;
           trouble = true;
           hop.enabled = true;
-          leap.enabled = true;
           render_markdown = true;
           todo_comments.enabled = true;
         };
@@ -163,7 +160,23 @@
       };
 
       # Git integrations
-      gitsigns.enable = true;
+      gitsigns = {
+        enable = true;
+        settings.on_attach.__raw = ''
+          function(bufnr)
+            local gs = package.loaded.gitsigns
+            local function map(mode, lhs, rhs, desc)
+              vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+            end
+            map('n', ']c', function() gs.nav_hunk('next') end, 'Next git hunk')
+            map('n', '[c', function() gs.nav_hunk('prev') end, 'Previous git hunk')
+            map('n', '<leader>gs', gs.stage_hunk,  'Stage hunk')
+            map('n', '<leader>gr', gs.reset_hunk,  'Reset hunk')
+            map('n', '<leader>gp', gs.preview_hunk,'Preview hunk')
+            map('n', '<leader>gb', gs.blame_line,  'Blame line')
+          end
+        '';
+      };
       diffview.enable = true;
 
       # TODO/FIXME/NOTE highlights + trouble integration
@@ -190,8 +203,7 @@
 
       # Motions and editing helpers
       hop.enable = true;
-      leap.enable = true;
-      vim-surround.enable = true;
+      nvim-surround.enable = true;
       comment.enable = true;
       which-key.enable = true;
 
@@ -300,12 +312,6 @@
           taplo.enable = true;
           yamlls.enable = true;
         };
-        keymaps = {
-          diagnostic = {
-            "[d" = "goto_prev";
-            "]d" = "goto_next";
-          };
-        };
       };
 
       # Formatter: conform.nvim (Prettierd, Stylua, etc.)
@@ -329,7 +335,7 @@
             sh = ["shfmt"];
           };
           format_on_save = {
-            lsp_fallback = true;
+            lsp_format = "fallback";
           };
         };
       };
@@ -423,10 +429,18 @@
         options.desc = "Search files by name";
       }
       {
-        key = "<leader>lg";
+        key = "<leader>fl";
         mode = ["n"];
         action = "<cmd>Telescope live_grep<cr>";
-        options.desc = "Search files by contents";
+        options.desc = "Live grep";
+      }
+
+      # Clear search highlights
+      {
+        key = "<leader>nh";
+        mode = ["n"];
+        action = "<cmd>nohlsearch<CR>";
+        options.desc = "Clear search highlights";
       }
 
       # File tree (Neo-tree)
@@ -463,13 +477,13 @@
       {
         key = "<leader>dj";
         mode = ["n"];
-        action = "<cmd>lua vim.diagnostic.goto_next()<CR>";
+        action = "<cmd>lua vim.diagnostic.jump({count=1})<CR>";
         options.desc = "Go to next diagnostic";
       }
       {
         key = "<leader>dk";
         mode = ["n"];
-        action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
+        action = "<cmd>lua vim.diagnostic.jump({count=-1})<CR>";
         options.desc = "Go to previous diagnostic";
       }
       {
@@ -524,54 +538,56 @@
       -- which-key group labels + icons
       local wk = require("which-key")
       wk.add({
-        { "<leader>b", group = "Buffer", icon = "󰈔" },
-        { "<leader>c", group = "Code", icon = "󰅩" },
-        { "<leader>d", group = "Diagnostics", icon = "󰒡" },
-        { "<leader>f", group = "Find", icon = "󰍉" },
-        { "<leader>g", group = "Git", icon = "󰊢" },
-        { "<leader>l", group = "Live Grep", icon = "󰺮" },
+        { "<leader>b", group = "Buffer",          icon = "󰈔" },
+        { "<leader>c", group = "Code",            icon = "󰅩" },
+        { "<leader>d", group = "Diagnostics",     icon = "󰒡" },
+        { "<leader>f", group = "Find",            icon = "󰍉" },
+        { "<leader>g", group = "Git",             icon = "󰊢" },
         { "<leader>r", group = "Rename/Refactor", icon = "󰑕" },
 
-        { "<leader>h", icon = "󰋖" },
-        { "<leader>H", icon = "󰌵" },
-        { "<leader>t", icon = "" },
-        { "<leader>u", icon = "󰕌" },
-        { "<leader>w", icon = "󰆓" },
-        { "<leader>.", icon = "󰅺" },
+        { "<leader>h",  icon = "󰋖" },
+        { "<leader>H",  icon = "󰌵" },
+        { "<leader>nh", icon = "󰇾" },
+        { "<leader>t",  icon = "" },
+        { "<leader>u",  icon = "󰕌" },
+        { "<leader>w",  icon = "󰆓" },
+        { "<leader>.",  icon = "󰅺" },
       })
-      -- Inline diagnostics (virtual text) similar to NVF virtual_lines
+      -- Inline diagnostics: don't update while typing to avoid noise
       vim.diagnostic.config({
         virtual_text = { prefix = "●", spacing = 2 },
-        update_in_insert = true,
+        update_in_insert = false,
         severity_sort = true,
         underline = true,
         signs = true,
       })
 
-      -- Basic LSP keymaps when LSP attaches
-      local function lsp_on_attach(_, bufnr)
-        local map = function(mode, lhs, rhs, desc)
-          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
-        end
-        map('n', 'K', vim.lsp.buf.hover, 'Hover docs')
-        map('n', 'gd', vim.lsp.buf.definition, 'Goto definition')
-        map('n', 'gD', vim.lsp.buf.declaration, 'Goto declaration')
-        map('n', 'gi', vim.lsp.buf.implementation, 'Goto implementation')
-        map('n', 'gr', vim.lsp.buf.references, 'References')
-        map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename symbol')
-        map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code action')
-      end
+      -- Spell-check and conceal only for prose/markup filetypes, not code
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "markdown", "text", "gitcommit", "rst" },
+        callback = function()
+          vim.opt_local.spell = true
+          vim.opt_local.spelllang = { "en" }
+          vim.opt_local.conceallevel = 2
+        end,
+      })
 
-      -- If nixvim exposes a hook, register it; otherwise set a global autocmd
-      if vim.g.__nixvim_lsp_attached ~= true then
-        vim.g.__nixvim_lsp_attached = true
-        vim.api.nvim_create_autocmd('LspAttach', {
-          callback = function(args)
-            local bufnr = args.buf
-            lsp_on_attach(nil, bufnr)
-          end,
-        })
-      end
+      -- LSP keymaps on attach (NixVim fires LspAttach once per buffer — no guard needed)
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local bufnr = args.buf
+          local map = function(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+          end
+          map('n', 'K',          vim.lsp.buf.hover,          'Hover docs')
+          map('n', 'gd',         vim.lsp.buf.definition,     'Goto definition')
+          map('n', 'gD',         vim.lsp.buf.declaration,    'Goto declaration')
+          map('n', 'gi',         vim.lsp.buf.implementation, 'Goto implementation')
+          map('n', 'gr',         vim.lsp.buf.references,     'References')
+          map('n', '<leader>rn', vim.lsp.buf.rename,         'Rename symbol')
+          map('n', '<leader>ca', vim.lsp.buf.code_action,    'Code action')
+        end,
+      })
 
 
       -- Startup dashboard (alpha-nvim)
