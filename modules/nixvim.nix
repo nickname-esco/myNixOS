@@ -223,6 +223,60 @@
       # Markdown preview
       markdown-preview.enable = true;
 
+      # Local AI assistant via Ollama
+      codecompanion = {
+        enable = true;
+        settings = {
+          adapters = {
+            http = {
+              opts = {
+                show_model_choices = false;
+              };
+            };
+          };
+
+          interactions = {
+            chat = {
+              adapter = {
+                name = "ollama";
+                model = "qwen2.5-coder:3b";
+              };
+            };
+            inline = {
+              adapter = {
+                name = "ollama";
+                model = "qwen2.5-coder:3b";
+              };
+            };
+            cmd = {
+              adapter = {
+                name = "ollama";
+                model = "qwen2.5-coder:3b";
+              };
+            };
+            background = {
+              adapter = {
+                name = "ollama";
+                model = "qwen2.5-coder:3b";
+              };
+            };
+          };
+
+          display = {
+            action_palette = {
+              provider = "telescope";
+            };
+          };
+
+          opts = {
+            log_level = "ERROR";
+            send_code = true;
+            use_default_actions = true;
+            use_default_prompts = true;
+          };
+        };
+      };
+
       # Completion and snippets
       blink-cmp = {
         enable = true;
@@ -479,6 +533,59 @@
         options.desc = "Toggle diagnostics list";
       }
 
+      # AI / CodeCompanion
+      {
+        key = "<leader>aa";
+        mode = [
+          "n"
+          "v"
+        ];
+        action = "<cmd>CodeCompanionActions<CR>";
+        options.desc = "AI actions";
+      }
+      {
+        key = "<leader>ac";
+        mode = ["n"];
+        action = "<cmd>CodeCompanionChat Toggle<CR>";
+        options.desc = "Toggle AI chat";
+      }
+      {
+        key = "<leader>an";
+        mode = ["n"];
+        action = "<cmd>CodeCompanionChat<CR>";
+        options.desc = "New AI chat";
+      }
+      {
+        key = "<leader>ai";
+        mode = ["n"];
+        action = ":CodeCompanion ";
+        options.desc = "Inline AI prompt";
+      }
+      {
+        key = "<leader>ai";
+        mode = ["v"];
+        action = ":'<,'>CodeCompanion ";
+        options.desc = "Inline AI prompt for selection";
+      }
+      {
+        key = "<leader>ae";
+        mode = ["v"];
+        action = ":'<,'>CodeCompanion /explain<CR>";
+        options.desc = "Explain selected code";
+      }
+      {
+        key = "<leader>af";
+        mode = ["v"];
+        action = ":'<,'>CodeCompanion /fix<CR>";
+        options.desc = "Fix selected code";
+      }
+      {
+        key = "<leader>al";
+        mode = ["n"];
+        action = "<cmd>CodeCompanion /lsp<CR>";
+        options.desc = "Explain LSP diagnostic";
+      }
+
       # Disable accidental F1 across modes
       {
         key = "<F1>";
@@ -524,6 +631,7 @@
         { "<leader>g", group = "Git" },
         { "<leader>r", group = "Rename/Refactor" },
         { "<leader>c", group = "Code" },
+        { "<leader>a", group = "AI" },
       })
       -- Inline diagnostics (virtual text) similar to NVF virtual_lines
       vim.diagnostic.config({
