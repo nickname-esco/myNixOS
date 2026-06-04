@@ -695,16 +695,24 @@
 
     # Diagnostic UI and notify background tweaks
     extraConfigLua = ''
-      -- which-key group labels
+      -- which-key group labels + icons
       local wk = require("which-key")
       wk.add({
-        { "<leader>f", group = "Find" },
-        { "<leader>d", group = "Diagnostics" },
-        { "<leader>b", group = "Buffer" },
-        { "<leader>g", group = "Git" },
-        { "<leader>r", group = "Rename/Refactor" },
-        { "<leader>c", group = "Code" },
-        { "<leader>a", group = "AI" },
+        { "<leader>a", group = "AI", icon = "󰚩" },
+        { "<leader>b", group = "Buffer", icon = "󰈔" },
+        { "<leader>c", group = "Code", icon = "󰅩" },
+        { "<leader>d", group = "Diagnostics", icon = "󰒡" },
+        { "<leader>f", group = "Find", icon = "󰍉" },
+        { "<leader>g", group = "Git", icon = "󰊢" },
+        { "<leader>l", group = "Live Grep", icon = "󰺮" },
+        { "<leader>r", group = "Rename/Refactor", icon = "󰑕" },
+
+        { "<leader>h", icon = "󰋖" },
+        { "<leader>H", icon = "󰌵" },
+        { "<leader>t", icon = "" },
+        { "<leader>u", icon = "󰕌" },
+        { "<leader>w", icon = "󰆓" },
+        { "<leader>.", icon = "󰅺" },
       })
       -- Inline diagnostics (virtual text) similar to NVF virtual_lines
       vim.diagnostic.config({
