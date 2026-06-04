@@ -111,7 +111,7 @@
           # Telescope prompt border to match the blue accent
           TelescopeBorderPrompt = {fg = "#89b4fa";};
 
-          # Floating windows, including CodeCompanion chat
+          # Floating windows
           NormalFloat = {bg = "#1e1e2e";};
           FloatBorder = {
             fg = "#89b4fa";
@@ -230,126 +230,6 @@
       # Markdown preview
       markdown-preview.enable = true;
 
-      # Local AI assistant via Ollama
-      codecompanion = {
-        enable = true;
-        settings = {
-          adapters = {
-            http = {
-              opts = {
-                show_model_choices = false;
-              };
-            };
-          };
-
-          interactions = {
-            chat = {
-              adapter = {
-                name = "ollama";
-                model = "qwen2.5-coder:3b";
-              };
-            };
-            inline = {
-              adapter = {
-                name = "ollama";
-                model = "qwen2.5-coder:3b";
-              };
-            };
-            cmd = {
-              adapter = {
-                name = "ollama";
-                model = "qwen2.5-coder:3b";
-              };
-            };
-            background = {
-              adapter = {
-                name = "ollama";
-                model = "qwen2.5-coder:3b";
-              };
-            };
-          };
-
-          display = {
-            action_palette = {
-              provider = "telescope";
-              opts = {
-                title = "󰚩 AI actions";
-              };
-            };
-
-            chat = {
-              window = {
-                layout = "float";
-                width = 0.85;
-                height = 0.82;
-                border = "rounded";
-                relative = "editor";
-                opts = {
-                  breakindent = true;
-                  linebreak = true;
-                  wrap = true;
-                  number = false;
-                  relativenumber = false;
-                  signcolumn = "no";
-                  foldcolumn = "0";
-                  winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder";
-                };
-              };
-
-              floating_window = {
-                width = 0.85;
-                height = 0.82;
-                border = "rounded";
-                relative = "editor";
-                opts = {
-                  breakindent = true;
-                  linebreak = true;
-                  wrap = true;
-                  number = false;
-                  relativenumber = false;
-                  signcolumn = "no";
-                  foldcolumn = "0";
-                  winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder";
-                };
-              };
-
-              intro_message = "󰚩 Local AI • qwen2.5-coder:3b • press ? for options";
-              separator = "─";
-              show_header_separator = false;
-              show_settings = false;
-              show_token_count = true;
-              start_in_insert_mode = false;
-            };
-
-            input = {
-              window = {
-                border = "rounded";
-                relative = "cursor";
-                title_pos = "left";
-                opts = {
-                  number = false;
-                  relativenumber = false;
-                  signcolumn = "no";
-                  foldcolumn = "0";
-                  statuscolumn = "";
-                  breakindent = true;
-                  linebreak = true;
-                  wrap = true;
-                  winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder";
-                };
-              };
-            };
-          };
-
-          opts = {
-            log_level = "ERROR";
-            send_code = true;
-            use_default_actions = true;
-            use_default_prompts = true;
-          };
-        };
-      };
-
       # Completion and snippets
       blink-cmp = {
         enable = true;
@@ -422,7 +302,6 @@
         };
         keymaps = {
           diagnostic = {
-            "<leader>dl" = "open_float";
             "[d" = "goto_prev";
             "]d" = "goto_next";
           };
@@ -606,59 +485,6 @@
         options.desc = "Toggle diagnostics list";
       }
 
-      # AI / CodeCompanion
-      {
-        key = "<leader>aa";
-        mode = [
-          "n"
-          "v"
-        ];
-        action = "<cmd>CodeCompanionActions<CR>";
-        options.desc = "AI actions";
-      }
-      {
-        key = "<leader>ac";
-        mode = ["n"];
-        action = "<cmd>CodeCompanionChat Toggle<CR>";
-        options.desc = "Toggle AI chat";
-      }
-      {
-        key = "<leader>an";
-        mode = ["n"];
-        action = "<cmd>CodeCompanionChat<CR>";
-        options.desc = "New AI chat";
-      }
-      {
-        key = "<leader>ai";
-        mode = ["n"];
-        action = ":CodeCompanion ";
-        options.desc = "Inline AI prompt";
-      }
-      {
-        key = "<leader>ai";
-        mode = ["v"];
-        action = ":'<,'>CodeCompanion ";
-        options.desc = "Inline AI prompt for selection";
-      }
-      {
-        key = "<leader>ae";
-        mode = ["v"];
-        action = ":'<,'>CodeCompanion /explain<CR>";
-        options.desc = "Explain selected code";
-      }
-      {
-        key = "<leader>af";
-        mode = ["v"];
-        action = ":'<,'>CodeCompanion /fix<CR>";
-        options.desc = "Fix selected code";
-      }
-      {
-        key = "<leader>al";
-        mode = ["n"];
-        action = "<cmd>CodeCompanion /lsp<CR>";
-        options.desc = "Explain LSP diagnostic";
-      }
-
       # Disable accidental F1 across modes
       {
         key = "<F1>";
@@ -698,7 +524,6 @@
       -- which-key group labels + icons
       local wk = require("which-key")
       wk.add({
-        { "<leader>a", group = "AI", icon = "󰚩" },
         { "<leader>b", group = "Buffer", icon = "󰈔" },
         { "<leader>c", group = "Code", icon = "󰅩" },
         { "<leader>d", group = "Diagnostics", icon = "󰒡" },
