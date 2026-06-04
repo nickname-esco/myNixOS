@@ -6,6 +6,7 @@
     fzf
     nvd
     w3m
+    file
     yazi
     inxi
     lsof
