@@ -535,23 +535,59 @@
 
     # Diagnostic UI and notify background tweaks
     extraConfigLua = ''
-      -- which-key group labels + icons
+      -- which-key labels + icons
+      --
+      -- This makes every visible <leader> mapping in which-key show a Nerd Font icon.
+      -- The icons below are only metadata for which-key; the actual mappings remain
+      -- in the normal NixVim keymaps section and the LSP/Git on_attach callbacks.
       local wk = require("which-key")
       wk.add({
+        -- Groups
         { "<leader>b", group = "Buffer",          icon = "󰈔" },
         { "<leader>c", group = "Code",            icon = "󰅩" },
         { "<leader>d", group = "Diagnostics",     icon = "󰒡" },
-        { "<leader>f", group = "Find",            icon = "󰍉" },
+        { "<leader>f", group = "Find",       icon = "󰍉" },
         { "<leader>g", group = "Git",             icon = "󰊢" },
+        { "<leader>n", group = "Search",          icon = "󰱽" },
         { "<leader>r", group = "Rename/Refactor", icon = "󰑕" },
 
-        { "<leader>h",  icon = "󰋖" },
-        { "<leader>H",  icon = "󰌵" },
-        { "<leader>nh", icon = "󰇾" },
-        { "<leader>t",  icon = "" },
-        { "<leader>u",  icon = "󰕌" },
-        { "<leader>w",  icon = "󰆓" },
-        { "<leader>.",  icon = "󰅺" },
+        -- Top-level leader actions
+        { "<leader>.",  desc = "Comment line/selection",    icon = "󰅺" },
+        { "<leader>h",  desc = "Open :help prompt",         icon = "󰋖" },
+        { "<leader>H",  desc = "Help for word under cursor", icon = "󰌵" },
+        { "<leader>t",  desc = "Toggle terminal",           icon = "" },
+        { "<leader>u",  desc = "Toggle undo tree",          icon = "󰕌" },
+        { "<leader>w",  desc = "Save file",                 icon = "󰆓" },
+
+        -- Buffer
+        { "<leader>bd", desc = "Close buffer",               icon = "󰅖" },
+
+        -- Code/LSP
+        { "<leader>ca", desc = "Code action",                icon = "󰅩" },
+
+        -- Diagnostics
+        { "<leader>dj", desc = "Go to next diagnostic",      icon = "󰒭" },
+        { "<leader>dk", desc = "Go to previous diagnostic",  icon = "󰒮" },
+        { "<leader>dl", desc = "Show diagnostic details",    icon = "󰋼" },
+        { "<leader>dt", desc = "Toggle diagnostics list",    icon = "󰒡" },
+
+        -- Find
+        { "<leader>fe", desc = "File browser toggle",        icon = "" },
+        { "<leader>ff", desc = "Search files by name",       icon = "󰈞" },
+        { "<leader>fl", desc = "Live grep",                  icon = "󰺮" },
+        { "<leader>ft", desc = "Search TODOs",               icon = "󰱒" },
+
+        -- Git
+        { "<leader>gb", desc = "Blame line",                 icon = "󰊢" },
+        { "<leader>gp", desc = "Preview hunk",               icon = "󰙨" },
+        { "<leader>gr", desc = "Reset hunk",                 icon = "󰜉" },
+        { "<leader>gs", desc = "Stage hunk",                 icon = "󰄬" },
+
+        -- Search
+        { "<leader>nh", desc = "Clear search highlights",    icon = "󰇾" },
+
+        -- Rename/Refactor
+        { "<leader>rn", desc = "Rename symbol",              icon = "󰑕" },
       })
       -- Inline diagnostics: don't update while typing to avoid noise
       vim.diagnostic.config({
