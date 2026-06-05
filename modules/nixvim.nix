@@ -417,11 +417,79 @@
         action = "<cmd>bprev<CR>";
         options.desc = "Previous buffer";
       }
+      # <leader>b_ keys ordered so alphabetical = logical:
+      # b=picker, c/v=next/prev, 1/2/3=jump, m/M=move, x=close, y=close others, z/Z=close left/right
       {
-        key = "<leader>bd";
+        key = "<leader>bb";
+        mode = ["n"];
+        action = "<cmd>Telescope buffers sort_mru=true sort_lastused=true<CR>";
+        options.desc = "Switch buffer (picker)";
+      }
+      {
+        key = "<leader>bc";
+        mode = ["n"];
+        action = "<cmd>bnext<CR>";
+        options.desc = "Next buffer";
+      }
+      {
+        key = "<leader>bv";
+        mode = ["n"];
+        action = "<cmd>bprev<CR>";
+        options.desc = "Previous buffer";
+      }
+      {
+        key = "<leader>b1";
+        mode = ["n"];
+        action = "<cmd>BufferLineGoToBuffer 1<CR>";
+        options.desc = "Go to buffer 1";
+      }
+      {
+        key = "<leader>b2";
+        mode = ["n"];
+        action = "<cmd>BufferLineGoToBuffer 2<CR>";
+        options.desc = "Go to buffer 2";
+      }
+      {
+        key = "<leader>b3";
+        mode = ["n"];
+        action = "<cmd>BufferLineGoToBuffer 3<CR>";
+        options.desc = "Go to buffer 3";
+      }
+      {
+        key = "<leader>bm";
+        mode = ["n"];
+        action = "<cmd>BufferLineMoveNext<CR>";
+        options.desc = "Move buffer right";
+      }
+      {
+        key = "<leader>bM";
+        mode = ["n"];
+        action = "<cmd>BufferLineMovePrev<CR>";
+        options.desc = "Move buffer left";
+      }
+      {
+        key = "<leader>bx";
         mode = ["n"];
         action = "<cmd>bdelete<CR>";
         options.desc = "Close buffer";
+      }
+      {
+        key = "<leader>by";
+        mode = ["n"];
+        action = "<cmd>BufferLineCloseOthers<CR>";
+        options.desc = "Close other buffers";
+      }
+      {
+        key = "<leader>bz";
+        mode = ["n"];
+        action = "<cmd>BufferLineCloseLeft<CR>";
+        options.desc = "Close buffers to the left";
+      }
+      {
+        key = "<leader>bZ";
+        mode = ["n"];
+        action = "<cmd>BufferLineCloseRight<CR>";
+        options.desc = "Close buffers to the right";
       }
 
       # Window navigation
@@ -605,7 +673,18 @@
         { "<leader>w",  desc = "Save file",                 icon = "󰆓" },
 
         -- Buffer
-        { "<leader>bd", desc = "Close buffer",               icon = "󰅖" },
+        { "<leader>bb", desc = "Switch buffer (picker)",     icon = "󰀻" },
+        { "<leader>bc", desc = "Next buffer",                icon = "󰒭" },
+        { "<leader>bv", desc = "Previous buffer",            icon = "󰒮" },
+        { "<leader>b1", desc = "Go to buffer 1",             icon = "󰎤" },
+        { "<leader>b2", desc = "Go to buffer 2",             icon = "󰎧" },
+        { "<leader>b3", desc = "Go to buffer 3",             icon = "󰎪" },
+        { "<leader>bm", desc = "Move buffer right",          icon = "󰆾" },
+        { "<leader>bM", desc = "Move buffer left",           icon = "󰆽" },
+        { "<leader>bx", desc = "Close buffer",               icon = "󰅖" },
+        { "<leader>by", desc = "Close other buffers",        icon = "󰱞" },
+        { "<leader>bz", desc = "Close buffers to the left",  icon = "󰁍" },
+        { "<leader>bZ", desc = "Close buffers to the right", icon = "󰁔" },
 
         -- Code/LSP
         { "<leader>ca", desc = "Code action",                icon = "󰅩" },
