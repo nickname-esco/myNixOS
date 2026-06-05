@@ -106,7 +106,7 @@
           Visual = {bg = "#313244";};
 
           # Telescope prompt border to match the blue accent
-          TelescopeBorderPrompt = {fg = "#89b4fa";};
+          TelescopePromptBorder = {fg = "#89b4fa";};
 
           # Floating windows
           NormalFloat = {bg = "#1e1e2e";};
@@ -297,16 +297,55 @@
       lsp = {
         enable = true;
         servers = {
-          nixd.enable = true;
-          lua_ls.enable = true;
+          nixd = {
+            enable = true;
+            settings = {
+              nixd = {
+                formatting = {
+                  command = ["alejandra"];
+                };
+                nixpkgs = {
+                  expr = "import <nixpkgs> { }";
+                };
+              };
+            };
+          };
+
+          lua_ls = {
+            enable = true;
+            settings = {
+              Lua = {
+                runtime = {
+                  version = "LuaJIT";
+                };
+                diagnostics = {
+                  globals = ["vim"];
+                };
+                workspace = {
+                  checkThirdParty = false;
+                };
+                telemetry = {
+                  enable = false;
+                };
+              };
+            };
+          };
+
           pyright.enable = true;
           ts_ls.enable = true;
           html.enable = true;
           cssls.enable = true;
           clangd.enable = true;
           zls.enable = true;
+          gopls.enable = true;
+          rust_analyzer = {
+            enable = true;
+            # cargo/rustc/rustfmt come from your rustup setup outside Nixvim.
+            installCargo = false;
+            installRustc = false;
+            installRustfmt = false;
+          };
           marksman.enable = true;
-          hyprls.enable = true;
           bashls.enable = true;
           jsonls.enable = true;
           taplo.enable = true;
@@ -321,7 +360,13 @@
           formatters_by_ft = {
             nix = ["alejandra"];
             lua = ["stylua"];
-            python = ["ruff"];
+            python = [
+              "ruff_fix"
+              "ruff_organize_imports"
+              "ruff_format"
+            ];
+            go = ["gofumpt"];
+            rust = ["rustfmt"];
             javascript = ["prettierd"];
             typescript = ["prettierd"];
             javascriptreact = ["prettierd"];
