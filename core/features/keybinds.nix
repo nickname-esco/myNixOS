@@ -52,8 +52,12 @@
           close-window;
       }
 
-      Mod+F hotkey-overlay-title="Fullscreen Window" {
-          fullscreen-window;
+      Mod+F hotkey-overlay-title="Maximize Window Width" {
+          set-column-width "100%";
+      }
+
+      Mod+Shift+F hotkey-overlay-title="Minimize Window Width" {
+          set-column-width "50%";
       }
 
       Mod+Shift+Q hotkey-overlay-title="Exit Niri" {
