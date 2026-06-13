@@ -6,6 +6,21 @@
   }
 
   window-rule {
+      match app-id=r#"^gamescope$"#
+      open-fullscreen true
+  }
+
+  window-rule {
+      match app-id=r#"^steam_app_414340$"#
+      open-fullscreen true
+  }
+
+  window-rule {
+      match title=r#"(?i).*hellblade.*"#
+      open-fullscreen true
+  }
+
+  window-rule {
       match app-id=r#"^thunar$"#
       opacity 0.85
   }
