@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   boot = {
     initrd = {
       verbose = false;
@@ -15,8 +14,8 @@
       };
     };
     kernelPackages = pkgs.linuxPackages;
-    kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+    kernelModules = ["v4l2loopback"];
+    extraModulePackages = [pkgs.linuxPackages.v4l2loopback];
     kernelParams = [
       "quiet"
       "udev.log_level=3"
@@ -37,10 +36,10 @@
     };
     plymouth = {
       enable = true;
-      theme = "optimus";
+      theme = "deus_ex";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "optimus" ];
+          selected_themes = ["deus_ex"];
         })
       ];
     };
