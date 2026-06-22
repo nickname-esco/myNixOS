@@ -4,8 +4,8 @@
   ...
 }: let
   thyxPackage = pkgs.callPackage (inputs.thyx + "/default.nix") {};
-
-  thyxCatppuccinBlush = thyxPackage.overrideAttrs (old: {
+in
+  thyxPackage.overrideAttrs (old: {
     postInstall =
       (old.postInstall or "")
       + ''
@@ -15,7 +15,7 @@
         FontSize="12"
         HourFormat="hh:mm AP"
         DateFormat="dddd d MMMM"
-        Background="backgrounds/blush.jpg"
+        Background="backgrounds/cinder.mp4"
 
         AnimationDuration="300"
         AnimationEasing="OutQuart"
@@ -49,14 +49,8 @@
         HoverSystemButtonsIconsColor="#cba6f7"
         HoverEnvironmentButtonTextColor="#cba6f7"
 
-        Blur="0.2"
+        Blur="0.0"
         FormPosition="center"
         EOF
       '';
-  });
-in {
-  services.displayManager.sddm.thyx = {
-    enable = true;
-    package = thyxCatppuccinBlush;
-  };
-}
+  })

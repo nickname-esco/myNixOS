@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: let
+  thyxCatppuccinCinder = import ./thyx.nix {
+    inherit pkgs inputs;
+  };
+in {
   services = {
     xserver = {
       enable = true;
@@ -14,14 +22,10 @@
         enable = true;
 
         wayland = {
-          enable = true;
+          enable = false;
         };
 
         package = pkgs.kdePackages.sddm;
-
-        extraPackages = with pkgs; [
-          kdePackages.qtvirtualkeyboard
-        ];
 
         settings = {
           General = {
@@ -33,6 +37,11 @@
             CursorSize = "24";
             Font = "JetBrainsMono Nerd Font";
           };
+        };
+
+        thyx = {
+          enable = true;
+          package = thyxCatppuccinCinder;
         };
       };
     };
