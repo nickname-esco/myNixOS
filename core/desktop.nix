@@ -16,10 +16,12 @@
         wayland = {
           enable = true;
         };
-        theme = "catppuccin-mocha-mauve";
+        theme = "sddm-astronaut-theme";
         package = pkgs.kdePackages.sddm;
         extraPackages = with pkgs; [
-          kdePackages.qt5compat
+          sddm-astronaut
+          kdePackages.qtsvg
+          kdePackages.qtvirtualkeyboard
           kdePackages.qtmultimedia
         ];
         settings = {
@@ -88,7 +90,6 @@
 
   environment = {
     systemPackages = with pkgs; [
-      catppuccin-sddm
       ffmpegthumbnailer
       xarchiver
       xfce4-exo
