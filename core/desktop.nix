@@ -90,6 +90,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      sddm-astronaut
       ffmpegthumbnailer
       xarchiver
       xfce4-exo

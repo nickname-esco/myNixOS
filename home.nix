@@ -13,7 +13,7 @@
     EDITOR = "nvim";
     TERMINAL = "kitty";
     NIXOS_OZONE_WL = "1";
-    WRL_NO_HARDWARE_CURSORS = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
     GTK_THEME = "catppuccin-mocha-mauve-standard:dark";
   };
 
