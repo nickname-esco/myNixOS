@@ -7,6 +7,7 @@
     ./bat.nix
     ./eza.nix
     ./mpv.nix
+    ./htop.nix
     ./fish.nix
     ./tmux.nix
     ./noctalia
