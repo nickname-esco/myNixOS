@@ -15,6 +15,7 @@
     zoxide
     killall
     wl-clipboard
+    brightnessctl
 
     # Nix tools
     nix-search-cli
