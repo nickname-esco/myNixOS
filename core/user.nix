@@ -5,10 +5,12 @@
     ignoreShellProgramCheck = true;
     description = "Bahri";
     extraGroups = [
-      "networkmanager"
+      "i2c"
+      "video"
       "wheel"
-      "libvirtd"
       "flatpak"
+      "libvirtd"
+      "networkmanager"
     ];
     packages = with pkgs; [
       google-chrome

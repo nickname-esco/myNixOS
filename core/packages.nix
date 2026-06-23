@@ -10,6 +10,7 @@
     curl
     unzip
     ripgrep
+    ddcutil
     nix-index
 
     # Nix tools
