@@ -3,7 +3,7 @@
     ./niri
     ./desktop
     ../features/base/boot.nix
-    ./unfree.nix
+    ../features/base/unfree.nix
     ./gaming.nix
     ../features/base/nix.nix
     ./flatpak.nix
