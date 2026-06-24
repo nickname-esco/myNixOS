@@ -1,14 +1,13 @@
 {...}: {
   imports = [
-    ./features/base/home-unfree.nix
-    ./features/desktop/gtk.nix
-    ./features/noctalia
-
-    ./features/media
-    ./features/editor
-    ./features/shell
     ./features/dev
+    ./features/media
+    ./features/shell
+    ./features/editor
+    ./features/noctalia
     ./features/terminal
+    ./features/desktop/gtk.nix
+    ./features/base/home-unfree.nix
   ];
 
   home = {
