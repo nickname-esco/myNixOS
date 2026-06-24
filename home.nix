@@ -1,6 +1,30 @@
 {...}: {
   imports = [
-    ./home
+    ./features/base/home-unfree.nix
+
+    ./features/desktop/gtk.nix
+    ./features/noctalia
+
+    ./features/terminal/omp
+    ./features/terminal/kitty.nix
+    ./features/terminal/fish.nix
+    ./features/terminal/tmux.nix
+    ./features/terminal/bat.nix
+    ./features/terminal/eza.nix
+    ./features/terminal/direnv.nix
+    ./features/terminal/nh.nix
+
+    ./features/editor/nixvim.nix
+
+    ./features/dev/git.nix
+    ./features/dev/lazygit.nix
+    ./features/dev/devkit.nix
+
+    ./features/shell/fastfetch
+    ./features/shell/htop.nix
+    ./features/shell/utils.nix
+
+    ./features/media/mpv.nix
   ];
 
   home = {
