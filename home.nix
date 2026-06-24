@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./features/editor
     ./features/shell
     ./features/dev
     ./features/terminal
