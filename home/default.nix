@@ -16,7 +16,7 @@
     ./utils.nix
     ./unfree.nix
     ./devkit.nix
-    ./direnv.nix
+    ../features/terminal/direnv.nix
     ./nixvim.nix
     ./lazygit.nix
   ];
