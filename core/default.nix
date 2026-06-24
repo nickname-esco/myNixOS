@@ -6,7 +6,7 @@
     ../features/base/unfree.nix
     ../features/gaming
     ../features/base/nix.nix
-    ./flatpak.nix
+    ../features/desktop/flatpak.nix
     ../features/base/network.nix
     ../features/base/hardware.nix
     ../features/base/packages.nix
