@@ -18,6 +18,6 @@
     ./devkit.nix
     ../features/terminal/direnv.nix
     ../features/editor/nixvim.nix
-    ./lazygit.nix
+    ../features/dev/lazygit.nix
   ];
 }
