@@ -1,7 +1,7 @@
 {
   imports = [
     ../features/terminal/omp
-    ./nh.nix
+    ../features/terminal/nh.nix
     ./git.nix
     ./gtk.nix
     ../features/terminal/bat.nix
