@@ -3,7 +3,7 @@
     ../features/terminal/omp
     ../features/terminal/nh.nix
     ../features/dev/git.nix
-    ./gtk.nix
+    ../features/desktop/gtk.nix
     ../features/terminal/bat.nix
     ../features/terminal/eza.nix
     ../features/media/mpv.nix
