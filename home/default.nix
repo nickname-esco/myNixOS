@@ -6,7 +6,7 @@
     ./gtk.nix
     ../features/terminal/bat.nix
     ../features/terminal/eza.nix
-    ./mpv.nix
+    ../features/media/mpv.nix
     ../features/shell/htop.nix
     ../features/terminal/fish.nix
     ../features/terminal/tmux.nix
