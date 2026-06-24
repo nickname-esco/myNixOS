@@ -2,7 +2,6 @@
   imports = [
     ./niri
     ./desktop
-    ./user.nix
     ./boot.nix
     ./unfree.nix
     ./gaming.nix

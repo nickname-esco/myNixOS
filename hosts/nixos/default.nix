@@ -5,7 +5,7 @@
 }: {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
-
+    ./users.nix
     ../../core
     ./hardware-configuration.nix
   ];
