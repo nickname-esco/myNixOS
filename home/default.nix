@@ -12,7 +12,7 @@
     ../features/terminal/tmux.nix
     ../features/noctalia
     ../features/terminal/kitty.nix
-    ./fastfetch
+    ../features/shell/fastfetch
     ./utils.nix
     ./unfree.nix
     ../features/dev/devkit.nix
