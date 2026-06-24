@@ -4,7 +4,7 @@
     ./desktop
     ../features/base/boot.nix
     ../features/base/unfree.nix
-    ./gaming.nix
+    ../features/gaming
     ../features/base/nix.nix
     ./flatpak.nix
     ../features/base/network.nix
