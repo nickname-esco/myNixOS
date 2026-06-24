@@ -10,7 +10,7 @@
     ../features/base/network.nix
     ../features/base/hardware.nix
     ../features/base/packages.nix
-    ./services.nix
+    ../features/services
     ./virtualisation.nix
   ];
 }
