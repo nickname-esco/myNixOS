@@ -1,7 +1,7 @@
 {...}: {
   imports = [
-    ./devkit.nix
     ./git.nix
+    ./devkit.nix
     ./lazygit.nix
   ];
 }
