@@ -10,25 +10,25 @@
     };
 
     greetd = {
-      enable = true;
+      enable = false;
+    };
 
-      settings = {
-        default_session = {
-          user = "greeter";
+    displayManager = {
+      ly = {
+        enable = true;
+        x11Support = true;
 
-          command = ''
-            ${pkgs.tuigreet}/bin/tuigreet \
-              --time \
-              --time-format '%A, %d %B  %I:%M %p' \
-              --remember \
-              --remember-session \
-              --user-menu \
-              --asterisks \
-              --sessions /run/current-system/sw/share/wayland-sessions \
-              --xsessions /run/current-system/sw/share/xsessions \
-              --theme 'border=magenta;text=white;prompt=magenta;time=cyan;action=blue;button=magenta;container=black;input=white' \
-              --cmd niri-session
-          '';
+        settings = {
+          animation = "matrix";
+          bigclock = true;
+          clock = "%I:%M %p";
+          asterisk = "*";
+
+          bg = "0x00000000";
+          fg = "0x00CDD6F4";
+          border_fg = "0x00CBA6F7";
+          error_fg = "0x00F38BA8";
+          clock_color = "#CBA6F7";
         };
       };
     };
