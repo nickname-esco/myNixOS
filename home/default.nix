@@ -2,7 +2,7 @@
   imports = [
     ../features/terminal/omp
     ../features/terminal/nh.nix
-    ./git.nix
+    ../features/dev/git.nix
     ./gtk.nix
     ../features/terminal/bat.nix
     ../features/terminal/eza.nix
