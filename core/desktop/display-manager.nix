@@ -16,7 +16,7 @@
     displayManager = {
       ly = {
         enable = true;
-        x11Support = true;
+        x11Support = false;
 
         settings = {
           animation = "matrix";
