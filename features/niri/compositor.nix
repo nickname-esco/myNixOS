@@ -13,7 +13,7 @@
     inherit terminal noctaliaBin;
   };
 
-  windowrulesModule = import ./windowrules.nix {};
+  windowrulesModule = import ./window-rules.nix {};
 
   startupModule = import ./startup.nix {
     inherit noctaliaBin;
