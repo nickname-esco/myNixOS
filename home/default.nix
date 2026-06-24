@@ -15,7 +15,7 @@
     ./fastfetch
     ./utils.nix
     ./unfree.nix
-    ./devkit.nix
+    ../features/dev/devkit.nix
     ../features/terminal/direnv.nix
     ../features/editor/nixvim.nix
     ../features/dev/lazygit.nix
