@@ -8,7 +8,7 @@
     ../features/base/nix.nix
     ./flatpak.nix
     ../features/base/network.nix
-    ./hardware.nix
+    ../features/base/hardware.nix
     ./packages.nix
     ./services.nix
     ./virtualisation.nix
