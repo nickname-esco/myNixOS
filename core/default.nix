@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./niri
-    ./desktop
+    ../features/desktop
     ../features/base/boot.nix
     ../features/base/unfree.nix
     ../features/gaming
