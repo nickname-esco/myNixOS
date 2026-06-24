@@ -11,6 +11,6 @@
     ../features/base/hardware.nix
     ../features/base/packages.nix
     ../features/services
-    ./virtualisation.nix
+    ../features/virtualisation
   ];
 }
