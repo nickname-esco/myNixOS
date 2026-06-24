@@ -9,7 +9,7 @@
     ./flatpak.nix
     ../features/base/network.nix
     ../features/base/hardware.nix
-    ./packages.nix
+    ../features/base/packages.nix
     ./services.nix
     ./virtualisation.nix
   ];
