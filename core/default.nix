@@ -7,7 +7,7 @@
     ./gaming.nix
     ../features/base/nix.nix
     ./flatpak.nix
-    ./network.nix
+    ../features/base/network.nix
     ./hardware.nix
     ./packages.nix
     ./services.nix
