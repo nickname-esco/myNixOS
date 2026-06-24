@@ -1,5 +1,9 @@
 {...}: {
   imports = [
+    ./features/base/home-unfree.nix
+    ./features/desktop/gtk.nix
+    ./features/noctalia
+
     ./features/media
     ./features/editor
     ./features/shell
