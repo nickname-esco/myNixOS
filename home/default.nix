@@ -10,7 +10,7 @@
     ./htop.nix
     ./fish.nix
     ./tmux.nix
-    ./noctalia
+    ../features/noctalia
     ./kitty.nix
     ./fastfetch
     ./utils.nix
