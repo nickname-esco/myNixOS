@@ -8,7 +8,7 @@
     ./eza.nix
     ./mpv.nix
     ./htop.nix
-    ./fish.nix
+    ../features/terminal/fish.nix
     ./tmux.nix
     ../features/noctalia
     ../features/terminal/kitty.nix
