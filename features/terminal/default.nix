@@ -1,12 +1,12 @@
 {...}: {
   imports = [
     ./omp
+    ./nh.nix
     ./bat.nix
-    ./direnv.nix
     ./eza.nix
     ./fish.nix
-    ./kitty.nix
-    ./nh.nix
     ./tmux.nix
+    ./kitty.nix
+    ./direnv.nix
   ];
 }
