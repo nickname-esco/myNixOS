@@ -13,7 +13,7 @@
     ../features/noctalia
     ../features/terminal/kitty.nix
     ../features/shell/fastfetch
-    ./utils.nix
+    ../features/shell/utils.nix
     ./unfree.nix
     ../features/dev/devkit.nix
     ../features/terminal/direnv.nix
