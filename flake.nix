@@ -41,7 +41,7 @@
 
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
-          ./configuration.nix
+          ./host/nixos
         ];
 
         specialArgs = {
