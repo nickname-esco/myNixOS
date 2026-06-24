@@ -7,7 +7,7 @@
     ../features/terminal/bat.nix
     ../features/terminal/eza.nix
     ./mpv.nix
-    ./htop.nix
+    ../features/shell/htop.nix
     ../features/terminal/fish.nix
     ../features/terminal/tmux.nix
     ../features/noctalia
