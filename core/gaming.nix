@@ -21,39 +21,19 @@
   programs = {
     steam = {
       enable = true;
-
-      gamescopeSession = {
-        enable = true;
-
-        args = [
-          "--rt"
-          "--expose-wayland"
-          "-W"
-          "1920"
-          "-H"
-          "1080"
-          "-r"
-          "60"
-        ];
-
-        steamArgs = [
-          "-tenfoot"
-          "-pipewire-dmabuf"
-        ];
-      };
-
-      extraCompatPackages = [
-        pkgs.proton-ge-bin
-      ];
+      gamescopeSession.enable = true;
+      extraCompatPackages = [pkgs.proton-ge-bin];
     };
 
-    gamemode = {
-      enable = true;
-    };
+    gamemode.enable = true;
 
     gamescope = {
       enable = true;
       capSysNice = true;
+      args = [
+        "--rt"
+        "--expose-wayland"
+      ];
     };
   };
 }
