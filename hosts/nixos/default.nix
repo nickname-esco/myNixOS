@@ -6,15 +6,16 @@
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
 
+    ./users.nix
+
     ../../features/base
-    ../../features/desktop
     ../../features/niri
     ../../features/gaming
+    ../../features/desktop
     ../../features/services
     ../../features/virtualisation
 
     ./hardware-configuration.nix
-    ./users.nix
   ];
 
   programs = {
