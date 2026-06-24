@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-./features/dev
+    ./features/shell
+    ./features/dev
     ./features/terminal
   ];
 
