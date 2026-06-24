@@ -17,7 +17,7 @@
           user = "greeter";
 
           command = ''
-            ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            ${pkgs.tuigreet}/bin/tuigreet \
               --time \
               --time-format '%A, %d %B  %I:%M %p' \
               --remember \
