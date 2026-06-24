@@ -14,7 +14,7 @@
     ../features/terminal/kitty.nix
     ../features/shell/fastfetch
     ../features/shell/utils.nix
-    ./unfree.nix
+    ../features/base/home-unfree.nix
     ../features/dev/devkit.nix
     ../features/terminal/direnv.nix
     ../features/editor/nixvim.nix
