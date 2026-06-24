@@ -7,7 +7,6 @@
     ./features/noctalia
     ./features/terminal
     ./features/desktop/gtk.nix
-    ./features/base/home-unfree.nix
   ];
 
   home = {
@@ -27,6 +26,6 @@
   systemd.user.sessionVariables = {
     GTK_THEME = "catppuccin-mocha-mauve-standard:dark";
   };
-
+  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }
