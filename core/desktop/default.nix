@@ -1,9 +1,9 @@
 {...}: {
   imports = [
-    ./sddm.nix
+    ./mime.nix
     ./thunar.nix
     ./portals.nix
-    ./mime.nix
     ./packages.nix
+    ./display-manager.nix
   ];
 }

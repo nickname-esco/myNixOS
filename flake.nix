@@ -21,11 +21,6 @@
       url = "github:noctalia-dev/noctalia/v4.7.7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    thyx = {
-      url = "github:rccyx/thyx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -46,8 +41,6 @@
 
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
-          inputs.thyx.nixosModules.default
-
           ./configuration.nix
         ];
 
