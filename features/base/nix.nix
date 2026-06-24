@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{...}: {
   # Automatic Updates
   system.autoUpgrade = {
     enable = true;

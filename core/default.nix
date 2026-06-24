@@ -5,7 +5,7 @@
     ../features/base/boot.nix
     ./unfree.nix
     ./gaming.nix
-    ./system.nix
+    ../features/base/nix.nix
     ./flatpak.nix
     ./network.nix
     ./hardware.nix
