@@ -4,7 +4,7 @@
     ./nh.nix
     ./git.nix
     ./gtk.nix
-    ./bat.nix
+    ../features/terminal/bat.nix
     ./eza.nix
     ./mpv.nix
     ./htop.nix
