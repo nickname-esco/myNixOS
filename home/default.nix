@@ -5,7 +5,7 @@
     ./git.nix
     ./gtk.nix
     ../features/terminal/bat.nix
-    ./eza.nix
+    ../features/terminal/eza.nix
     ./mpv.nix
     ./htop.nix
     ../features/terminal/fish.nix
