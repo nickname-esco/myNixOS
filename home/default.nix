@@ -11,7 +11,7 @@
     ./fish.nix
     ./tmux.nix
     ../features/noctalia
-    ./kitty.nix
+    ../features/terminal/kitty.nix
     ./fastfetch
     ./utils.nix
     ./unfree.nix
