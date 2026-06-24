@@ -9,7 +9,7 @@
     ./mpv.nix
     ./htop.nix
     ../features/terminal/fish.nix
-    ./tmux.nix
+    ../features/terminal/tmux.nix
     ../features/noctalia
     ../features/terminal/kitty.nix
     ./fastfetch
