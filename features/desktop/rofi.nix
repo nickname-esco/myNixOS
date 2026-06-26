@@ -4,25 +4,34 @@
   ...
 }: let
   inherit (config.lib.formats.rasi) mkLiteral;
+
+  hiddenDesktopEntry = name: exec: ''
+    [Desktop Entry]
+    Type=Application
+    Name=${name}
+    Exec=${exec}
+    Terminal=false
+    NoDisplay=true
+    Hidden=true
+    Categories=Utility;
+  '';
 in {
   # Fonts
   fonts.fontconfig.enable = true;
 
-  # Hide Rofi Desktop Entries
-  xdg.desktopEntries = {
-    rofi = {
-      name = "Rofi";
-      exec = "rofi -show drun";
-      terminal = false;
-      noDisplay = true;
-    };
+  # Hidden Desktop Entries
+  home.file = {
+    ".local/share/applications/rofi.desktop".text =
+      hiddenDesktopEntry "Rofi" "rofi -show drun";
 
-    rofi-theme-selector = {
-      name = "Rofi Theme Selector";
-      exec = "rofi-theme-selector";
-      terminal = false;
-      noDisplay = true;
-    };
+    ".local/share/applications/org.davatorium.rofi.desktop".text =
+      hiddenDesktopEntry "Rofi" "rofi -show drun";
+
+    ".local/share/applications/rofi-theme-selector.desktop".text =
+      hiddenDesktopEntry "Rofi Theme Selector" "rofi-theme-selector";
+
+    ".local/share/applications/org.davatorium.rofi-theme-selector.desktop".text =
+      hiddenDesktopEntry "Rofi Theme Selector" "rofi-theme-selector";
   };
 
   # Rofi
