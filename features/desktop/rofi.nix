@@ -58,6 +58,7 @@ in {
       sort = true;
       disable-history = false;
       case-sensitive = false;
+      click-to-exit = true;
     };
 
     # Theme
