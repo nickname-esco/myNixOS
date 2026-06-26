@@ -5,20 +5,26 @@
 }: let
   inherit (config.lib.formats.rasi) mkLiteral;
 in {
-  home.packages = [
-    pkgs.nerd-fonts.jetbrains-mono
-    pkgs.papirus-icon-theme
-  ];
-
+  # Fonts
   fonts.fontconfig.enable = true;
 
+  # Hide Rofi Theme Selector
+  xdg.desktopEntries.rofi-theme-selector = {
+    name = "Rofi Theme Selector";
+    exec = "rofi-theme-selector";
+    terminal = false;
+    noDisplay = true;
+  };
+
+  # Rofi
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
 
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "JetBrainsMono Nerd Font 12";
 
+    # Config
     extraConfig = {
       modi = "drun,run,window";
       show-icons = true;
@@ -30,10 +36,13 @@ in {
 
       drun-display-format = "{icon} {name}";
       matching = "fuzzy";
+      sorting-method = "normal";
       sort = true;
+      disable-history = false;
       case-sensitive = false;
     };
 
+    # Theme
     theme = {
       "*" = {
         bg = mkLiteral "#1e1e2e";
@@ -51,6 +60,7 @@ in {
         spacing = 0;
       };
 
+      # Window
       window = {
         location = mkLiteral "center";
         anchor = mkLiteral "center";
@@ -63,6 +73,7 @@ in {
         background-color = mkLiteral "@bg";
       };
 
+      # Main Box
       mainbox = {
         background-color = mkLiteral "@bg";
         children = map mkLiteral ["inputbar" "listview"];
@@ -70,6 +81,7 @@ in {
         padding = mkLiteral "16px";
       };
 
+      # Input Bar
       inputbar = {
         background-color = mkLiteral "@bg-alt";
         text-color = mkLiteral "@fg";
@@ -84,17 +96,20 @@ in {
         children = map mkLiteral ["prompt" "entry"];
       };
 
+      # Prompt
       prompt = {
         text-color = mkLiteral "@mauve";
         padding = mkLiteral "0px 8px 0px 0px";
       };
 
+      # Entry
       entry = {
         text-color = mkLiteral "@fg";
         placeholder = "Search apps...";
         placeholder-color = mkLiteral "@muted";
       };
 
+      # List View
       listview = {
         background-color = mkLiteral "transparent";
 
@@ -108,6 +123,7 @@ in {
         spacing = mkLiteral "6px";
       };
 
+      # Element
       element = {
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@fg";
@@ -117,16 +133,19 @@ in {
         spacing = mkLiteral "10px";
       };
 
+      # Selected Element
       "element selected" = {
         background-color = mkLiteral "@mauve";
         text-color = mkLiteral "@bg";
       };
 
+      # Element Icon
       "element-icon" = {
         size = mkLiteral "24px";
         background-color = mkLiteral "transparent";
       };
 
+      # Element Text
       "element-text" = {
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "inherit";
