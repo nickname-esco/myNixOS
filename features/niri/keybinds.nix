@@ -36,7 +36,7 @@
       }
 
       Mod+D hotkey-overlay-title="Open Discord" {
-          spawn "discord";
+      spawn "flatpak" "run" "com.discordapp.Discord";
       }
 
       Mod+G hotkey-overlay-title="Open GIMP" {
