@@ -1,8 +1,4 @@
-{
-  terminal,
-  noctaliaBin,
-  ...
-}: ''
+{terminal, ...}: ''
   binds {
       // Help / overview
       Mod+Shift+Slash hotkey-overlay-title="Show Hotkeys" {
@@ -13,9 +9,9 @@
           toggle-overview;
       }
 
-      // Noctalia launcher
-      Mod+Space hotkey-overlay-title="Open Noctalia Launcher" {
-          spawn "${noctaliaBin}" "ipc" "call" "launcher" "toggle";
+      // Rofi launcher
+      Mod+Space hotkey-overlay-title="Open Rofi Launcher" {
+          spawn "rofi" "-show" "drun";
       }
 
       // Apps
