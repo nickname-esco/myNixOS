@@ -29,16 +29,17 @@ in {
   };
 
   # Rofi Theme
-  xdg.configFile."rofi/catppuccin-mocha.rasi".text = ''
+  xdg.configFile."rofi/github-dark.rasi".text = ''
     @theme "/dev/null"
 
     * {
-      bg: #1e1e2e;
-      bg-alt: #181825;
-      fg: #cdd6f4;
-      muted: #6c7086;
-      mauve: #cba6f7;
-      surface: #313244;
+      bg: #0d1117e6;
+      bg-alt: #161b22d9;
+      fg: #c9d1d9;
+      muted: #8b949e;
+      accent: #bc8cff;
+      blue: #58a6ff;
+      surface: #30363db3;
 
       background-color: transparent;
       text-color: @fg;
@@ -55,13 +56,13 @@ in {
       width: 38%;
       border: 2px;
       border-radius: 14px;
-      border-color: @mauve;
+      border-color: @accent;
 
       background-color: @bg;
     }
 
     mainbox {
-      background-color: @bg;
+      background-color: transparent;
       children: [inputbar, listview];
       spacing: 12px;
       padding: 16px;
@@ -82,7 +83,7 @@ in {
     }
 
     prompt {
-      text-color: @mauve;
+      text-color: @accent;
       padding: 0px 8px 0px 0px;
     }
 
@@ -115,8 +116,8 @@ in {
     }
 
     element selected {
-      background-color: @mauve;
-      text-color: @bg;
+      background-color: @accent;
+      text-color: #0d1117;
     }
 
     element-icon {
@@ -138,11 +139,12 @@ in {
 
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "JetBrainsMono Nerd Font 12";
-    theme = "catppuccin-mocha";
+    theme = "github-dark";
 
     # Config
     extraConfig = {
       modi = "drun,run,window";
+
       show-icons = true;
       icon-theme = "Papirus-Dark";
 
@@ -150,13 +152,14 @@ in {
       display-run = "Run";
       display-window = "Windows";
 
-      drun-display-format = "{icon} {name}";
+      drun-display-format = "{name}";
+
       matching = "fuzzy";
       sorting-method = "normal";
       sort = true;
+
       disable-history = false;
       case-sensitive = false;
-      click-to-exit = true;
     };
   };
 }

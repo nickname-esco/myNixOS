@@ -86,16 +86,6 @@
       ],
       "left": [
         {
-          "colorizeSystemIcon": "primary",
-          "colorizeSystemText": "none",
-          "customIconPath": "",
-          "enableColorization": true,
-          "icon": "rocket",
-          "iconColor": "none",
-          "id": "Launcher",
-          "useDistroLogo": true
-        },
-        {
           "characterCount": 3,
           "colorizeIcons": false,
           "emptyColor": "secondary",
@@ -161,14 +151,14 @@
           "textColor": "none"
         },
         {
-          "colorizeDistroLogo": false,
-          "colorizeSystemIcon": "none",
+          "colorizeDistroLogo": true,
+          "colorizeSystemIcon": "primary",
           "colorizeSystemText": "none",
           "customIconPath": "",
-          "enableColorization": false,
-          "icon": "noctalia",
+          "enableColorization": true,
+          "icon": "nixos",
           "id": "ControlCenter",
-          "useDistroLogo": false
+          "useDistroLogo": true
         }
       ]
     }
