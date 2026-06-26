@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.lib.formats.rasi) mkLiteral;
-
+{pkgs, ...}: let
   hiddenDesktopEntry = name: exec: ''
     [Desktop Entry]
     Type=Application
@@ -34,6 +28,109 @@ in {
       hiddenDesktopEntry "Rofi Theme Selector" "rofi-theme-selector";
   };
 
+  # Rofi Theme
+  xdg.configFile."rofi/catppuccin-mocha.rasi".text = ''
+    @theme "/dev/null"
+
+    * {
+      bg: #1e1e2e;
+      bg-alt: #181825;
+      fg: #cdd6f4;
+      muted: #6c7086;
+      mauve: #cba6f7;
+      surface: #313244;
+
+      background-color: transparent;
+      text-color: @fg;
+
+      margin: 0;
+      padding: 0;
+      spacing: 0;
+    }
+
+    window {
+      location: center;
+      anchor: center;
+
+      width: 38%;
+      border: 2px;
+      border-radius: 14px;
+      border-color: @mauve;
+
+      background-color: @bg;
+    }
+
+    mainbox {
+      background-color: @bg;
+      children: [inputbar, listview];
+      spacing: 12px;
+      padding: 16px;
+    }
+
+    inputbar {
+      background-color: @bg-alt;
+      text-color: @fg;
+
+      border: 1px;
+      border-color: @surface;
+      border-radius: 10px;
+
+      padding: 10px 12px;
+      spacing: 10px;
+
+      children: [prompt, entry];
+    }
+
+    prompt {
+      text-color: @mauve;
+      padding: 0px 8px 0px 0px;
+    }
+
+    entry {
+      text-color: @fg;
+      placeholder: "Search apps...";
+      placeholder-color: @muted;
+    }
+
+    listview {
+      background-color: transparent;
+
+      columns: 1;
+      lines: 8;
+
+      fixed-height: true;
+      dynamic: true;
+
+      scrollbar: false;
+      spacing: 6px;
+    }
+
+    element {
+      background-color: transparent;
+      text-color: @fg;
+
+      border-radius: 10px;
+      padding: 9px 10px;
+      spacing: 10px;
+    }
+
+    element selected {
+      background-color: @mauve;
+      text-color: @bg;
+    }
+
+    element-icon {
+      size: 24px;
+      background-color: transparent;
+    }
+
+    element-text {
+      background-color: transparent;
+      text-color: inherit;
+      vertical-align: 0.5;
+    }
+  '';
+
   # Rofi
   programs.rofi = {
     enable = true;
@@ -41,6 +138,7 @@ in {
 
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "JetBrainsMono Nerd Font 12";
+    theme = "catppuccin-mocha";
 
     # Config
     extraConfig = {
@@ -59,117 +157,6 @@ in {
       disable-history = false;
       case-sensitive = false;
       click-to-exit = true;
-    };
-
-    # Theme
-    theme = {
-      "*" = {
-        bg = mkLiteral "#1e1e2e";
-        bg-alt = mkLiteral "#181825";
-        fg = mkLiteral "#cdd6f4";
-        muted = mkLiteral "#6c7086";
-        mauve = mkLiteral "#cba6f7";
-        surface = mkLiteral "#313244";
-
-        background-color = mkLiteral "transparent";
-        text-color = mkLiteral "@fg";
-
-        margin = 0;
-        padding = 0;
-        spacing = 0;
-      };
-
-      # Window
-      window = {
-        location = mkLiteral "center";
-        anchor = mkLiteral "center";
-
-        width = mkLiteral "38%";
-        border = mkLiteral "2px";
-        border-radius = mkLiteral "14px";
-        border-color = mkLiteral "@mauve";
-
-        background-color = mkLiteral "@bg";
-      };
-
-      # Main Box
-      mainbox = {
-        background-color = mkLiteral "@bg";
-        children = map mkLiteral ["inputbar" "listview"];
-        spacing = mkLiteral "12px";
-        padding = mkLiteral "16px";
-      };
-
-      # Input Bar
-      inputbar = {
-        background-color = mkLiteral "@bg-alt";
-        text-color = mkLiteral "@fg";
-
-        border = mkLiteral "1px";
-        border-color = mkLiteral "@surface";
-        border-radius = mkLiteral "10px";
-
-        padding = mkLiteral "10px 12px";
-        spacing = mkLiteral "10px";
-
-        children = map mkLiteral ["prompt" "entry"];
-      };
-
-      # Prompt
-      prompt = {
-        text-color = mkLiteral "@mauve";
-        padding = mkLiteral "0px 8px 0px 0px";
-      };
-
-      # Entry
-      entry = {
-        text-color = mkLiteral "@fg";
-        placeholder = "Search apps...";
-        placeholder-color = mkLiteral "@muted";
-      };
-
-      # List View
-      listview = {
-        background-color = mkLiteral "transparent";
-
-        columns = 1;
-        lines = 8;
-
-        fixed-height = true;
-        dynamic = true;
-
-        scrollbar = false;
-        spacing = mkLiteral "6px";
-      };
-
-      # Element
-      element = {
-        background-color = mkLiteral "transparent";
-        text-color = mkLiteral "@fg";
-
-        border-radius = mkLiteral "10px";
-        padding = mkLiteral "9px 10px";
-        spacing = mkLiteral "10px";
-      };
-
-      # Selected Element
-      "element selected" = {
-        background-color = mkLiteral "@mauve";
-        text-color = mkLiteral "@bg";
-      };
-
-      # Element Icon
-      "element-icon" = {
-        size = mkLiteral "24px";
-        background-color = mkLiteral "transparent";
-      };
-
-      # Element Text
-      "element-text" = {
-        background-color = mkLiteral "transparent";
-        text-color = mkLiteral "inherit";
-        vertical-align = mkLiteral "0.5";
-      };
     };
   };
 }
