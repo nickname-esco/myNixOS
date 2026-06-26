@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./rofi.nix
     ./mime.nix
     ./thunar.nix
     ./flatpak.nix
