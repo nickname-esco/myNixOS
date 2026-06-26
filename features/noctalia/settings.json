@@ -86,6 +86,13 @@
       ],
       "left": [
         {
+          "enableColorization": true,
+          "icon": "rocket",
+          "id": "Launcher",
+          "useDistroLogo": true,
+          "colorizeSystemIcon": "primary"
+        },
+        {
           "characterCount": 3,
           "colorizeIcons": false,
           "emptyColor": "secondary",
@@ -156,9 +163,9 @@
           "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": true,
-          "icon": "nixos",
+          "icon": "noctalia",
           "id": "ControlCenter",
-          "useDistroLogo": true
+          "useDistroLogo": false
         }
       ]
     }

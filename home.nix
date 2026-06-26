@@ -7,7 +7,6 @@
     ./features/noctalia
     ./features/terminal
     ./features/desktop/gtk.nix
-    ./features/desktop/rofi.nix
   ];
 
   home = {

@@ -9,9 +9,9 @@
           toggle-overview;
       }
 
-      // Rofi launcher
-      Mod+Space hotkey-overlay-title="Open Rofi Launcher" {
-          spawn "rofi" "-show" "drun";
+      // Noctalia launcher
+      Mod+Space hotkey-overlay-title="Open Noctalia Launcher" {
+          spawn "noctalia-shell" "ipc" "call" "launcher" "toggle";
       }
 
       // Apps
