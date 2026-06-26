@@ -8,12 +8,21 @@ in {
   # Fonts
   fonts.fontconfig.enable = true;
 
-  # Hide Rofi Theme Selector
-  xdg.desktopEntries.rofi-theme-selector = {
-    name = "Rofi Theme Selector";
-    exec = "rofi-theme-selector";
-    terminal = false;
-    noDisplay = true;
+  # Hide Rofi Desktop Entries
+  xdg.desktopEntries = {
+    rofi = {
+      name = "Rofi";
+      exec = "rofi -show drun";
+      terminal = false;
+      noDisplay = true;
+    };
+
+    rofi-theme-selector = {
+      name = "Rofi Theme Selector";
+      exec = "rofi-theme-selector";
+      terminal = false;
+      noDisplay = true;
+    };
   };
 
   # Rofi
