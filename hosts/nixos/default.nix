@@ -4,10 +4,13 @@
   ...
 }: {
   imports = [
+    # Modules Imports
     inputs.nix-flatpak.nixosModules.nix-flatpak
 
+    # Host Users
     ./users.nix
 
+    # Feature Modules
     ../../features/base
     ../../features/niri
     ../../features/gaming
@@ -15,9 +18,11 @@
     ../../features/services
     ../../features/virtualisation
 
+    # hardware Configuration
     ./hardware-configuration.nix
   ];
 
+  # Runtime Compatibility
   programs = {
     nix-ld = {
       enable = true;
@@ -28,5 +33,6 @@
     };
   };
 
+  # System Version
   system.stateVersion = "26.05";
 }
