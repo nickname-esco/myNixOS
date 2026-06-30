@@ -1,9 +1,9 @@
 {...}: {
   imports = [
-    ./boot.nix
-    ./hardware.nix
-    ./network.nix
     ./nix.nix
+    ./boot.nix
+    ./network.nix
     ./packages.nix
+    ./hardware.nix
   ];
 }
