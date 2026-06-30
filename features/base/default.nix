@@ -5,6 +5,5 @@
     ./network.nix
     ./nix.nix
     ./packages.nix
-    ./unfree.nix
   ];
 }
