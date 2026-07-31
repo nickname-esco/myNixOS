@@ -5,7 +5,7 @@
     ./bat.nix
     ./eza.nix
     ./fish.nix
-    ./tmux.nix
+    ./herdr.nix
     ./kitty.nix
     ./direnv.nix
   ];

@@ -21,6 +21,9 @@
       url = "github:noctalia-dev/noctalia/v4.7.7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    herdr = {
+      url = "github:herdrdev/herdr";
+    };
   };
 
   outputs = {
