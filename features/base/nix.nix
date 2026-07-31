@@ -5,23 +5,25 @@
     dates = "weekly";
   };
 
-  # Automatic Cleanup
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 10";
-  };
+  nix = {
+    # Automatic Cleanup
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 10";
+    };
 
-  # Nix Settings
-  nix.settings = {
-    download-buffer-size = 200000000;
-    auto-optimise-store = true;
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    max-jobs = "auto";
-    cores = 0;
+    # Nix Settings
+    settings = {
+      download-buffer-size = 200000000;
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      max-jobs = "auto";
+      cores = 0;
+    };
   };
 
   # Allow unfree packages
