@@ -13,7 +13,7 @@
     new_cwd = "follow"
 
     [theme]
-    name = "catppuccin-mocha"   # changed from tokyo-night
+    name = "catppuccin-mocha"
 
     [keys]
     prefix = "ctrl+a"
@@ -27,19 +27,9 @@
     split_vertical = "prefix+-"
 
     close_pane = "prefix+x"
-    zoom_pane = "prefix+z"
 
     new_tab = "prefix+c"
     next_tab = "prefix+n"
     previous_tab = "prefix+p"
-
-    [commands]
-    editor = "nvim"
-    terminal = "fish"
-    git = "lazygit"
-    files = "yazi"
-
-    [mouse]
-    enabled = true
   '';
 }
