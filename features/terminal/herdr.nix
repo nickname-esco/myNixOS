@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = [
-    inputs.herdr.packages.${pkgs.system}.default
+    inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   xdg.configFile."herdr/config.toml".text = ''
@@ -39,7 +39,7 @@
     previous_tab = "prefix+p"
 
     [ui]
-    sidebar_width = 24     # changed from 32
+    sidebar_width = 24
     agent_panel_sort = "priority"
     show_agent_labels_on_pane_borders = true
 
