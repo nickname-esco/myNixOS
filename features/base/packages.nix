@@ -19,7 +19,6 @@
     # Media / graphics
     gimp
     inkscape
-    mediawriter
 
     # Virtualisation / containers
     virt-viewer
