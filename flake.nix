@@ -11,6 +11,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-flatpak = {
@@ -21,20 +22,19 @@
       url = "github:noctalia-dev/noctalia/v4.7.7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    herdr = {
-      url = "github:herdrdev/herdr";
+
+    helium = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    nix-flatpak,
-    ...
-  } @ inputs: let
-    lib = nixpkgs.lib;
+  outputs = inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+
+    lib = inputs.nixpkgs.lib;
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+
     username = "bahri";
     name = "Bahri";
   in {
@@ -42,28 +42,28 @@
       nixos = lib.nixosSystem {
         inherit system;
 
+        specialArgs = {
+          inherit inputs username name;
+        };
+
         modules = [
-          nix-flatpak.nixosModules.nix-flatpak
+          inputs.nix-flatpak.nixosModules.nix-flatpak
           ./hosts/nixos
         ];
-
-        specialArgs = {
-          inherit username name inputs;
-        };
       };
     };
 
     homeConfigurations = {
-      bahri = home-manager.lib.homeManagerConfiguration {
+      bahri = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+
+        extraSpecialArgs = {
+          inherit inputs username name;
+        };
 
         modules = [
           ./home.nix
         ];
-
-        extraSpecialArgs = {
-          inherit username name inputs;
-        };
       };
     };
   };
