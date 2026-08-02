@@ -19,8 +19,8 @@
           spawn "${terminal}";
       }
 
-      Mod+B hotkey-overlay-title="Open Helium Browser" {
-          spawn "helium";
+      Mod+B hotkey-overlay-title="Open Zen Browser" {
+          spawn "flatpak" "run" "app.zen_browser.zen";
       }
 
       Mod+C hotkey-overlay-title="Open Cider" {

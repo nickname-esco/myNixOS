@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./mime.nix
-    ./helium.nix
     ./thunar.nix
     ./flatpak.nix
     ./portals.nix
