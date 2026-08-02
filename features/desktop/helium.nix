@@ -23,43 +23,25 @@
       # Background activity
       BackgroundModeEnabled = false;
 
-      # Telemetry / reporting
-      # Keep disabled: not required for normal browser operation
+      # Telemetry
       MetricsReportingEnabled = false;
       UsageReportingEnabled = false;
       CloudReportingEnabled = false;
 
-      # Search privacy
-      SearchSuggestEnabled = false;
-
-      # Cookie privacy
-      BlockThirdPartyCookies = true;
-
-      # Notifications
-      DefaultNotificationsSetting = "block";
+      # Compatibility
+      BlockThirdPartyCookies = false;
 
       # Security
       SafeBrowsingProtectionLevel = 1;
-      HttpsOnlyMode = "force_enabled";
 
-      # WebRTC privacy
-      WebRtcIPHandling = "disable_non_proxied_udp";
+      # WebRTC compatibility
+      WebRtcIPHandling = "default";
 
       # Disable unnecessary Google services
       TranslateEnabled = false;
-      BrowserLabsEnabled = false;
 
-      # Disable prediction services that send browsing data
-      NetworkPredictionOptions = 2;
-
-      # Disable URL leak through alternate error pages
-      AlternateErrorPagesEnabled = false;
-
-      # Disable browser suggestions based on history
+      # Privacy
       URLKeyedAnonymizedDataCollectionEnabled = false;
-
-      # Disable extension developer data reporting
-      ExtensionInstallSources = [];
     };
   };
 }
