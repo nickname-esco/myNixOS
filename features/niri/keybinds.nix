@@ -20,7 +20,7 @@
       }
 
       Mod+B hotkey-overlay-title="Open Helium Browser" {
-          spawn "helium;
+          spawn "helium";
       }
 
       Mod+C hotkey-overlay-title="Open Cider" {
@@ -36,7 +36,7 @@
       }
 
       Mod+D hotkey-overlay-title="Open Discord" {
-      spawn "flatpak" "run" "com.discordapp.Discord";
+          spawn "flatpak" "run" "com.discordapp.Discord";
       }
 
       Mod+G hotkey-overlay-title="Open GIMP" {
