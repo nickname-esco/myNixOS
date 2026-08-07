@@ -16,6 +16,9 @@
     # Nix tools
     lorri
 
+    # Notes
+    notesnook
+
     # Media / graphics
     gimp
     inkscape
