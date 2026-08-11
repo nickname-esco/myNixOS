@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   nixpkgs.overlays = [
     (final: prev: {
       steam = prev.steam.override {
@@ -11,17 +7,10 @@
     })
   ];
 
-  security.wrappers.bwrap = lib.mkForce {
-    owner = "root";
-    group = "root";
-    source = "${pkgs.bubblewrap}/bin/bwrap";
-    setuid = false;
-  };
-
   programs = {
     steam = {
       enable = true;
-      gamescopeSession.enable = false;
+      gamescopeSession.enable = true;
       extraCompatPackages = [pkgs.proton-ge-bin];
     };
 
