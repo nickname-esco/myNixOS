@@ -10,7 +10,7 @@
   programs = {
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
+      gamescopeSession.enable = false;
       extraCompatPackages = [pkgs.proton-ge-bin];
     };
 
